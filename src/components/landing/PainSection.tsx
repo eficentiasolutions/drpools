@@ -24,9 +24,9 @@ const painPoints = [
   },
   {
     icon: AlertTriangle,
-    title: "El Terror de la Corrosión",
+    title: "El enemigo que se esconde bajo el agua",
     description:
-      "Ese óxido en el filtro, las manchas en las paredes... Un descuido hoy puede costarte miles mañana en reparaciones.",
+      "Virus y bacterias invisibles, pueden convertir el disfrute del verano en un riesgo serio para la salud de tus seres queridos.",
   },
 ];
 

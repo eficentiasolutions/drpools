@@ -1,4 +1,5 @@
-import { Droplets, Facebook, Instagram, Twitter, Linkedin } from "lucide-react";
+import { Facebook, Instagram } from "lucide-react";
+import logoImage from "@/assets/logo-v3.png";
 
 const Footer = () => {
   return (
@@ -8,16 +9,20 @@ const Footer = () => {
           {/* Brand */}
           <div className="col-span-2">
             <div className="flex items-center gap-2 mb-3 md:mb-4">
-              <div className="w-8 h-8 md:w-10 md:h-10 rounded-lg md:rounded-xl bg-secondary flex items-center justify-center">
-                <Droplets className="w-5 h-5 md:w-6 md:h-6 text-white" />
+              <div>
+                <img
+                  src={logoImage}
+                  alt="Agua Más Segura"
+                  className="h-16 md:h-24 w-auto object-contain"
+                />
               </div>
-              <span className="text-xl md:text-2xl font-bold">Smart-Pool™</span>
+              <span className="text-xl md:text-2xl font-bold">Agua Más Segura</span>
             </div>
             <p className="text-white/70 mb-4 md:mb-6 max-w-md text-sm md:text-base">
               Transformamos el mantenimiento de tu piscina en una experiencia sin esfuerzo.
             </p>
             <div className="flex gap-3 md:gap-4">
-              {[Facebook, Instagram, Twitter, Linkedin].map((Icon, index) => (
+              {[Facebook, Instagram].map((Icon, index) => (
                 <a
                   key={index}
                   href="#"
@@ -60,23 +65,18 @@ const Footer = () => {
             <h4 className="font-bold mb-3 md:mb-4 text-sm md:text-base">Legal</h4>
             <ul className="space-y-2 md:space-y-3 text-white/70 text-xs md:text-sm">
               <li>
-                <a href="#" className="hover:text-secondary transition-colors">
+                <a href="/aviso-legal" className="hover:text-secondary transition-colors">
                   Aviso Legal
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-secondary transition-colors">
+                <a href="/privacidad" className="hover:text-secondary transition-colors">
                   Privacidad
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-secondary transition-colors">
+                <a href="/cookies" className="hover:text-secondary transition-colors">
                   Cookies
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-secondary transition-colors">
-                  Condiciones
                 </a>
               </li>
             </ul>
@@ -86,10 +86,10 @@ const Footer = () => {
         {/* Bottom bar */}
         <div className="pt-6 md:pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-2 md:gap-4">
           <p className="text-white/50 text-xs md:text-sm">
-            © 2024 Smart-Pool™. Todos los derechos reservados.
+            © {new Date().getFullYear()} Agua Más Segura. Todos los derechos reservados.
           </p>
           <p className="text-white/50 text-xs md:text-sm">
-            Hecho con 💙 para propietarios de piscinas
+            Hecho por <a href="https://eficentiasolutions.com" target="_blank" rel="noopener noreferrer">Eficentia Solutions</a> para AMS.
           </p>
         </div>
       </div>

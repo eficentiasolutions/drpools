@@ -7,23 +7,6 @@ import { toast } from "@/hooks/use-toast";
 const ContactSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    
-    toast({
-      title: "¡Mensaje enviado!",
-      description: "Nos pondremos en contacto contigo en menos de 24 horas.",
-    });
-    
-    setIsSubmitting(false);
-    (e.target as HTMLFormElement).reset();
-  };
 
   return (
     <section ref={ref} className="py-12 md:py-20 lg:py-28 bg-muted" id="contacto">
@@ -65,7 +48,7 @@ const ContactSection = () => {
                     ¡Plazas Limitadas!
                   </h3>
                   <p className="text-muted-foreground text-sm md:text-base">
-                    Solo aceptamos <span className="text-destructive font-bold">10 nuevos clientes Premium</span> este mes. 
+                    Solo aceptamos <span className="text-destructive font-bold">10 nuevos clientes Premium</span> este mes.
                   </p>
                 </div>
               </div>
@@ -75,14 +58,18 @@ const ContactSection = () => {
               Información de Contacto
             </h3>
 
-            <div className="grid grid-cols-2 lg:grid-cols-1 gap-4 md:gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4 md:gap-6">
               <div className="flex items-start gap-3 md:gap-4">
                 <div className="w-10 h-10 md:w-12 md:h-12 rounded-lg md:rounded-xl bg-secondary/10 flex items-center justify-center flex-shrink-0">
                   <Phone className="w-5 h-5 md:w-6 md:h-6 text-secondary" />
                 </div>
                 <div>
                   <h4 className="font-semibold text-foreground text-sm md:text-base">Teléfono</h4>
-                  <p className="text-muted-foreground text-xs md:text-base">+34 900 123 456</p>
+                  <p className="text-muted-foreground text-xs md:text-base">
+                    <a href="tel:+34673329102" className="hover:text-secondary transition-colors">+ 34 673 329 102</a>
+                    {' / '}
+                    <a href="tel:+34965753198" className="hover:text-secondary transition-colors">+ 34 965 753 198</a>
+                  </p>
                 </div>
               </div>
 
@@ -92,7 +79,9 @@ const ContactSection = () => {
                 </div>
                 <div>
                   <h4 className="font-semibold text-foreground text-sm md:text-base">Email</h4>
-                  <p className="text-muted-foreground text-xs md:text-base">info@smartpool.es</p>
+                  <p className="text-muted-foreground text-xs md:text-base">
+                    <a href="mailto:ruben@aguamassegura.com" className="hover:text-secondary transition-colors">ruben@aguamassegura.com</a>
+                  </p>
                 </div>
               </div>
 
@@ -102,7 +91,7 @@ const ContactSection = () => {
                 </div>
                 <div>
                   <h4 className="font-semibold text-foreground text-sm md:text-base">Zonas</h4>
-                  <p className="text-muted-foreground text-xs md:text-base">Madrid, Valencia, BCN</p>
+                  <p className="text-muted-foreground text-xs md:text-base">Provincia de Alicante</p>
                 </div>
               </div>
 
@@ -112,7 +101,7 @@ const ContactSection = () => {
                 </div>
                 <div>
                   <h4 className="font-semibold text-foreground text-sm md:text-base">Horario</h4>
-                  <p className="text-muted-foreground text-xs md:text-base">Lun - Vie: 8-20h</p>
+                  <p className="text-muted-foreground text-xs md:text-base">Lun - Vie: 8:00 - 13:30, 16:00 - 19:00</p>
                 </div>
               </div>
             </div>
@@ -125,9 +114,15 @@ const ContactSection = () => {
             transition={{ duration: 0.6, delay: 0.3 }}
           >
             <form
-              onSubmit={handleSubmit}
+              action="https://formsubmit.co/agencia.ia.tech@gmail.com"
+              method="POST"
               className="bg-card rounded-2xl md:rounded-3xl shadow-sm p-5 md:p-8"
             >
+              <input type="hidden" name="_next" value={`${typeof window !== "undefined" ? window.location.origin : ""}/gracias`} />
+              <input type="hidden" name="_captcha" value="false" />
+              <input type="hidden" name="_subject" value="Nuevo contacto desde Agua Más Segura" />
+              <input type="hidden" name="_template" value="table" />
+
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 mb-4 md:mb-6">
                 <div>
                   <label className="block text-xs md:text-sm font-medium text-foreground mb-1.5 md:mb-2">
@@ -135,6 +130,7 @@ const ContactSection = () => {
                   </label>
                   <input
                     type="text"
+                    name="name"
                     required
                     className="w-full px-3 md:px-4 py-2.5 md:py-3 rounded-lg md:rounded-xl border border-border bg-background text-foreground focus:ring-2 focus:ring-secondary focus:border-transparent transition-all text-sm md:text-base"
                     placeholder="Tu nombre"
@@ -146,6 +142,7 @@ const ContactSection = () => {
                   </label>
                   <input
                     type="tel"
+                    name="phone"
                     required
                     className="w-full px-3 md:px-4 py-2.5 md:py-3 rounded-lg md:rounded-xl border border-border bg-background text-foreground focus:ring-2 focus:ring-secondary focus:border-transparent transition-all text-sm md:text-base"
                     placeholder="+34 600 000 000"
@@ -159,6 +156,7 @@ const ContactSection = () => {
                 </label>
                 <input
                   type="email"
+                  name="email"
                   required
                   className="w-full px-3 md:px-4 py-2.5 md:py-3 rounded-lg md:rounded-xl border border-border bg-background text-foreground focus:ring-2 focus:ring-secondary focus:border-transparent transition-all text-sm md:text-base"
                   placeholder="tu@email.com"
@@ -171,6 +169,7 @@ const ContactSection = () => {
                 </label>
                 <input
                   type="text"
+                  name="postal_code"
                   required
                   className="w-full px-3 md:px-4 py-2.5 md:py-3 rounded-lg md:rounded-xl border border-border bg-background text-foreground focus:ring-2 focus:ring-secondary focus:border-transparent transition-all text-sm md:text-base"
                   placeholder="28001"
@@ -182,25 +181,32 @@ const ContactSection = () => {
                   ¿Cuál es tu mayor problema con la piscina?
                 </label>
                 <textarea
+                  name="message"
                   rows={3}
                   className="w-full px-3 md:px-4 py-2.5 md:py-3 rounded-lg md:rounded-xl border border-border bg-background text-foreground focus:ring-2 focus:ring-secondary focus:border-transparent transition-all resize-none text-sm md:text-base"
                   placeholder="Cuéntanos brevemente..."
                 />
               </div>
 
+              <div className="mb-4 md:mb-6 flex items-start gap-2">
+                <input
+                  type="checkbox"
+                  id="privacy_policy"
+                  name="privacy_policy"
+                  required
+                  className="mt-1 h-4 w-4 rounded border-border text-secondary focus:ring-secondary"
+                />
+                <label htmlFor="privacy_policy" className="text-xs text-muted-foreground text-left">
+                  He leído y acepto la <a href="/privacidad" className="underline hover:text-foreground">política de privacidad</a> y consiento el tratamiento de mis datos para la gestión de la solicitud.
+                </label>
+              </div>
+
               <button
                 type="submit"
-                disabled={isSubmitting}
-                className="btn-glow w-full flex items-center justify-center gap-2 md:gap-3 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="btn-solid w-full flex items-center justify-center gap-2 md:gap-3"
               >
-                {isSubmitting ? (
-                  <div className="w-5 h-5 md:w-6 md:h-6 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                ) : (
-                  <>
-                    <Send className="w-4 h-4 md:w-5 md:h-5" />
-                    Solicitar Inspección GRATIS
-                  </>
-                )}
+                <Send className="w-4 h-4 md:w-5 md:h-5" />
+                Solicitar Inspección GRATIS
               </button>
 
               <p className="text-center text-xs md:text-sm text-muted-foreground mt-3 md:mt-4">

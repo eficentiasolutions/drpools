@@ -9,8 +9,8 @@ const services = [
     title: "Limpieza Profesional",
     subtitle: "Adiós al agua verde",
     description:
-      "Sistema de limpieza integral que devuelve el brillo cristalino a tu piscina en una sola sesión.",
-    benefit: "Piscina lista para disfrutar en 24h",
+      "Método de limpieza integral que devuelve el brillo cristalino a tu piscina durante todo el año.",
+    benefit: "Piscina lista para disfrutar",
     color: "from-blue-500 to-cyan-500",
   },
   {
@@ -18,8 +18,8 @@ const services = [
     title: "Balance Químico Inteligente",
     subtitle: "Sin más adivinanzas",
     description:
-      "Análisis profesional y dosificación exacta. Olvídate de pruebas constantes y productos que no funcionan.",
-    benefit: "Ahorra hasta 40% en químicos",
+      "Análisis profesional y dosificación exacta para eliminar patógenos como virus y bacterias sin poner en riesgo la salud.",
+    benefit: "Sin riesgos para tu familia",
     color: "from-teal-500 to-emerald-500",
   },
   {
@@ -42,7 +42,7 @@ const benefits = [
   {
     icon: Shield,
     title: "Garantía Total",
-    description: "Si no estás satisfecho, lo arreglamos gratis",
+    description: "Si no estás satisfecho, te devolvemos el dinero",
   },
   {
     icon: Leaf,

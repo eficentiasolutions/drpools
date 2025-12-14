@@ -1,20 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
-
 @layer base {
   :root {
     /* Brand Colors - Pool Maintenance Theme */
-    --brand-primary: 210 100% 25%;
-    --brand-primary-light: 205 90% 40%;
-    --brand-teal: 195 100% 45%;
+    --brand-primary: 208 100% 30%;
+    --brand-primary-light: 205 90% 45%;
+    --brand-teal: 195 100% 48%;
     --brand-teal-light: 195 100% 55%;
     --brand-dark: 210 50% 10%;
     --brand-pain: 16 80% 40%;
     --brand-pain-light: 16 80% 96%;
-    
+
     /* Core semantic colors */
     --background: 210 40% 98%;
     --foreground: 222 47% 11%;
@@ -99,16 +99,25 @@
 }
 
 @layer components {
+
   /* Shadow Glow Button */
   .btn-glow {
-    @apply relative px-6 py-3 md:px-8 md:py-4 bg-secondary text-secondary-foreground font-bold rounded-xl
-           transition-all duration-300 ease-out transform text-sm md:text-base;
+    @apply relative px-6 py-3 md:px-8 md:py-4 bg-secondary text-secondary-foreground font-bold rounded-xl transition-all duration-300 ease-out transform text-sm md:text-base;
     box-shadow: var(--shadow-glow);
   }
 
   .btn-glow:hover {
     @apply scale-105;
     box-shadow: var(--shadow-glow-hover);
+  }
+  
+  /* Solid Button (No Glow) */
+  .btn-solid {
+    @apply relative px-6 py-3 md:px-8 md:py-4 bg-secondary text-secondary-foreground font-bold rounded-xl transition-all duration-300 ease-out transform text-sm md:text-base;
+  }
+
+  .btn-solid:hover {
+    @apply scale-105 bg-secondary/90;
   }
 
   .btn-glow::before {
@@ -123,19 +132,16 @@
 
   /* Pain Card Styling */
   .pain-card {
-    @apply relative bg-destructive/5 border-2 border-destructive/20 rounded-2xl p-6
-           transition-all duration-300 hover:border-destructive/40 hover:shadow-lg;
+    @apply relative bg-destructive/5 border-2 border-destructive/20 rounded-2xl p-6 transition-all duration-300 hover:border-destructive/40 hover:shadow-lg;
   }
 
   .pain-icon {
-    @apply w-14 h-14 rounded-full bg-destructive/10 flex items-center justify-center
-           text-destructive text-2xl mb-4;
+    @apply w-14 h-14 rounded-full bg-destructive/10 flex items-center justify-center text-destructive text-2xl mb-4;
   }
 
   /* Service Card */
   .service-card {
-    @apply bg-card rounded-2xl p-8 transition-all duration-300
-           hover:-translate-y-2;
+    @apply bg-card rounded-2xl p-8 transition-all duration-300 hover:-translate-y-2;
     box-shadow: var(--shadow-card);
   }
 
@@ -171,9 +177,7 @@
 
   /* Floating Badge */
   .floating-badge {
-    @apply fixed top-24 right-4 z-50 bg-destructive text-destructive-foreground
-           px-4 py-2 rounded-full font-bold text-sm shadow-lg
-           animate-pulse hidden lg:flex items-center gap-2;
+    @apply fixed top-24 right-4 z-50 bg-destructive text-destructive-foreground px-4 py-2 rounded-full font-bold text-sm shadow-lg animate-pulse hidden lg:flex items-center gap-2;
   }
 
   /* FAQ Accordion */
@@ -182,8 +186,7 @@
   }
 
   .faq-question {
-    @apply w-full py-5 flex items-center justify-between text-left font-semibold
-           text-foreground hover:text-primary transition-colors;
+    @apply w-full py-5 flex items-center justify-between text-left font-semibold text-foreground hover:text-primary transition-colors;
   }
 
   .faq-answer {
@@ -198,21 +201,17 @@
 
   /* Hero gradient */
   .hero-gradient {
-    background: linear-gradient(
-      135deg,
-      hsl(var(--brand-primary)) 0%,
-      hsl(var(--brand-primary-light)) 50%,
-      hsl(var(--brand-teal)) 100%
-    );
+    background: linear-gradient(135deg,
+        hsl(var(--brand-primary)) 0%,
+        hsl(var(--brand-primary-light)) 50%,
+        hsl(var(--brand-teal)) 100%);
   }
 
   /* Dark banner gradient */
   .dark-banner {
-    background: linear-gradient(
-      135deg,
-      hsl(var(--brand-dark)) 0%,
-      hsl(222, 47%, 15%) 100%
-    );
+    background: linear-gradient(135deg,
+        hsl(var(--brand-dark)) 0%,
+        hsl(222, 47%, 15%) 100%);
   }
 
   /* Water ripple effect */
@@ -223,13 +222,20 @@
   .water-ripple::before {
     content: '';
     @apply absolute w-[200%] h-[200%] -top-1/2 -left-1/2;
-    background: radial-gradient(ellipse at center, rgba(255,255,255,0.1) 0%, transparent 70%);
+    background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
     animation: ripple 8s ease-in-out infinite;
   }
 
   @keyframes ripple {
-    0%, 100% { transform: translate(0, 0) scale(1); }
-    50% { transform: translate(-5%, -5%) scale(1.1); }
+
+    0%,
+    100% {
+      transform: translate(0, 0) scale(1);
+    }
+
+    50% {
+      transform: translate(-5%, -5%) scale(1.1);
+    }
   }
 
   /* Testimonial card */

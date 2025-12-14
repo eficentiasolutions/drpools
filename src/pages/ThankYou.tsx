@@ -1,0 +1,88 @@
+import { useRef, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { CheckCircle } from "lucide-react";
+import confetti from "canvas-confetti";
+import { Helmet } from "react-helmet";
+
+const ThankYou = () => {
+    const isMounted = useRef(false);
+
+    useEffect(() => {
+        if (!isMounted.current) {
+            isMounted.current = true;
+            const duration = 3 * 1000;
+            const animationEnd = Date.now() + duration;
+            const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
+
+            const random = (min: number, max: number) => Math.random() * (max - min) + min;
+
+            const interval = window.setInterval(() => {
+                const timeLeft = animationEnd - Date.now();
+
+                if (timeLeft <= 0) {
+                    return clearInterval(interval);
+                }
+
+                const particleCount = 50 * (timeLeft / duration);
+                confetti({
+                    ...defaults,
+                    particleCount,
+                    origin: { x: random(0.1, 0.3), y: Math.random() - 0.2 },
+                });
+                confetti({
+                    ...defaults,
+                    particleCount,
+                    origin: { x: random(0.7, 0.9), y: Math.random() - 0.2 },
+                });
+            }, 250);
+
+            const timer = setTimeout(() => {
+                window.location.href = "/";
+            }, 5000);
+
+            return () => {
+                clearInterval(interval);
+                clearTimeout(timer);
+            };
+        }
+    }, []);
+
+    return (
+        <div className="flex min-h-screen items-center justify-center bg-background px-4">
+            <Helmet>
+                <title>¡Gracias por contactarnos! | Agua Más Segura</title>
+                <meta name="description" content="Hemos recibido tu solicitud correctamente. Te contactaremos pronto." />
+                <meta name="robots" content="noindex" />
+            </Helmet>
+
+            <div className="mx-auto max-w-md text-center">
+                <div className="mb-6 flex justify-center">
+                    <div className="rounded-full bg-green-100 p-4 drop-shadow-lg animate-bounce">
+                        <CheckCircle className="h-16 w-16 text-green-600" />
+                    </div>
+                </div>
+
+                <h1 className="mb-4 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+                    ¡Solicitud Recibida!
+                </h1>
+
+                <p className="mb-8 text-lg text-muted-foreground">
+                    Gracias por confiar en Agua Más Segura. Hemos recibido tus datos y uno de nuestros expertos se pondrá en contacto contigo en menos de 24 horas.
+                </p>
+
+                <p className="mb-8 text-sm text-gray-400">
+                    Serás redirigido al inicio automáticamente en unos segundos...
+                </p>
+
+                <Link
+                    to="/"
+                    className="inline-flex items-center rounded-xl bg-primary px-6 py-3 font-semibold text-primary-foreground shadow-sm transition-all hover:bg-primary/90 hover:scale-105 active:scale-95"
+                >
+                    Volver al Inicio
+                </Link>
+            </div>
+        </div>
+    );
+};
+
+export default ThankYou;

@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Droplets, Menu, X } from "lucide-react";
+import logoImage from "@/assets/logo-v3.png";
 
 const navLinks = [
   { label: "Servicios", href: "#servicios" },
@@ -26,34 +27,22 @@ const Navbar = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? "bg-white/95 backdrop-blur-md shadow-sm"
-          : "bg-transparent"
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled || isMobileMenuOpen
+        ? "bg-white/95 backdrop-blur-md shadow-sm"
+        : "bg-gradient-to-b from-black/50 to-transparent"
+        }`}
     >
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between py-2 md:py-4">
           {/* Logo */}
           <a href="#" className="flex items-center gap-2">
-            <div
-              className={`w-10 h-10 rounded-xl flex items-center justify-center transition-colors ${
-                isScrolled ? "bg-primary" : "bg-white/20"
-              }`}
-            >
-              <Droplets
-                className={`w-6 h-6 ${
-                  isScrolled ? "text-white" : "text-white"
-                }`}
+            <div className="transition-transform hover:scale-105">
+              <img
+                src={logoImage}
+                alt="Agua Más Segura"
+                className="h-16 md:h-24 w-auto object-contain"
               />
             </div>
-            <span
-              className={`text-xl font-bold transition-colors ${
-                isScrolled ? "text-foreground" : "text-white"
-              }`}
-            >
-              Smart-Pool™
-            </span>
           </a>
 
           {/* Desktop Navigation */}
@@ -62,20 +51,18 @@ const Navbar = () => {
               <a
                 key={link.label}
                 href={link.href}
-                className={`font-medium transition-colors hover:text-secondary ${
-                  isScrolled ? "text-foreground" : "text-white"
-                }`}
+                className={`font-medium transition-colors hover:text-secondary ${isScrolled || isMobileMenuOpen ? "text-foreground" : "text-white"
+                  }`}
               >
                 {link.label}
               </a>
             ))}
             <a
               href="#contacto"
-              className={`px-6 py-2.5 rounded-xl font-bold transition-all ${
-                isScrolled
-                  ? "bg-secondary text-white hover:bg-secondary/90"
-                  : "bg-white text-primary hover:bg-white/90"
-              }`}
+              className={`px-6 py-2.5 rounded-xl font-bold transition-all ${isScrolled || isMobileMenuOpen
+                ? "bg-secondary text-white hover:bg-secondary/90"
+                : "bg-white text-primary hover:bg-white/90"
+                }`}
             >
               Inspección Gratis
             </a>
@@ -84,9 +71,8 @@ const Navbar = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className={`md:hidden p-2 rounded-lg ${
-              isScrolled ? "text-foreground" : "text-white"
-            }`}
+            className={`md:hidden p-2 rounded-lg ${isScrolled || isMobileMenuOpen ? "text-foreground" : "text-white"
+              }`}
           >
             {isMobileMenuOpen ? (
               <X className="w-6 h-6" />

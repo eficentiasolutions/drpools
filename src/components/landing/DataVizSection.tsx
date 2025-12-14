@@ -37,11 +37,11 @@ const satisfactionData = {
 };
 
 const timeData = {
-  labels: ["Ene", "Feb", "Mar", "Abr", "May", "Jun"],
+  labels: ["Abr", "May", "Jun", "Jul", "Ago", "Sep"],
   datasets: [
     {
       label: "Horas Ahorradas",
-      data: [8, 12, 15, 14, 18, 16],
+      data: [10, 20, 15, 15, 15, 15],
       backgroundColor: "rgba(13, 148, 136, 0.8)",
       borderRadius: 8,
     },
@@ -49,9 +49,9 @@ const timeData = {
 };
 
 const stats = [
-  { icon: Users, value: "500+", label: "Familias Felices" },
+  { icon: Users, value: "650+", label: "Familias Felices" },
   { icon: Award, value: "97%", label: "Tasa Satisfacción" },
-  { icon: TrendingUp, value: "80h", label: "Tiempo Ahorrado/Año" },
+  { icon: TrendingUp, value: "90h", label: "Tiempo Ahorrado/Año" },
   { icon: Zap, value: "24h", label: "Tiempo de Respuesta" },
 ];
 
@@ -78,7 +78,7 @@ const DataVizSection = () => {
           </span>
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-3 md:mb-4 px-2">
             El Sistema{" "}
-            <span className="gradient-text">Smart-Pool™</span>
+            <span className="gradient-text">Agua Más Segura</span>
           </h2>
           <p className="text-muted-foreground text-sm md:text-lg max-w-2xl mx-auto px-2">
             Metodología propia respaldada por datos reales de nuestros clientes
@@ -196,7 +196,7 @@ const DataVizSection = () => {
               />
             </div>
             <p className="text-center text-xs md:text-sm text-muted-foreground mt-3 md:mt-4">
-              <span className="text-secondary font-bold">+80 horas</span> de tiempo libre al año
+              <span className="text-secondary font-bold">+90 horas</span> de tiempo libre al año
             </p>
           </motion.div>
         </div>
