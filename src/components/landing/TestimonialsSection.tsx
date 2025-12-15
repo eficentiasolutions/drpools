@@ -91,6 +91,9 @@ const TestimonialsSection = () => {
                 <img
                   src={testimonial.image}
                   alt={testimonial.name}
+                  loading="lazy"
+                  width="48"
+                  height="48"
                   className="w-12 h-12 rounded-full object-cover"
                 />
                 <div>
@@ -106,31 +109,7 @@ const TestimonialsSection = () => {
           ))}
         </div>
 
-        {/* Trust badges */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="mt-10 md:mt-16 text-center"
-        >
-          <p className="text-muted-foreground mb-4 md:mb-6 text-sm md:text-base">
-            Certificados y asociaciones
-          </p>
-          <div className="flex flex-wrap justify-center items-center gap-4 md:gap-8 opacity-60">
-            <div className="text-lg md:text-2xl font-bold text-foreground">
-              ISO 9001
-            </div>
-            <div className="text-lg md:text-2xl font-bold text-foreground">
-              ASOFAP
-            </div>
-            <div className="text-lg md:text-2xl font-bold text-foreground">
-              AEPSA
-            </div>
-            <div className="text-lg md:text-2xl font-bold text-foreground">
-              ECO-CERT
-            </div>
-          </div>
-        </motion.div>
+
       </div>
     </section>
   );

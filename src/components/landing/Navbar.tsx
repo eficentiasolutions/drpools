@@ -35,11 +35,13 @@ const Navbar = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between py-2 md:py-4">
           {/* Logo */}
-          <a href="#" className="flex items-center gap-2">
+          <a href="#" className="flex items-center gap-2" aria-label="Inicio">
             <div className="transition-transform hover:scale-105">
               <img
                 src={logoImage}
                 alt="Agua Más Segura"
+                width="96"
+                height="96"
                 className="h-16 md:h-24 w-auto object-contain"
               />
             </div>
@@ -71,6 +73,7 @@ const Navbar = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label={isMobileMenuOpen ? "Cerrar menú" : "Abrir menú"}
             className={`md:hidden p-2 rounded-lg ${isScrolled || isMobileMenuOpen ? "text-foreground" : "text-white"
               }`}
           >

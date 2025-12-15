@@ -5,9 +5,9 @@ import { ChevronDown, HelpCircle } from "lucide-react";
 
 const faqs = [
   {
-    question: "¿Qué incluye la inspección gratuita?",
+    question: "¿Qué incluye la revisión gratuita?",
     answer:
-      "La inspección gratuita incluye un análisis completo del balance químico de tu piscina (pH, cloro, alcalinidad, dureza), revisión visual del estado general, filtros y sistema de circulación, y un informe detallado con recomendaciones personalizadas. Sin compromiso de contratación.",
+      "La revisión gratuita incluye un análisis completo del balance químico de tu piscina (pH, cloro, alcalinidad, dureza), revisión visual del estado general, filtros y sistema de circulación, y un informe detallado con recomendaciones personalizadas. Sin compromiso de contratación.",
   },
   {
     question: "¿Con qué frecuencia necesita mantenimiento mi piscina?",
@@ -27,7 +27,7 @@ const faqs = [
   {
     question: "¿Trabajan en mi zona?",
     answer:
-      "Actualmente damos servicio en toda la Comunidad de Madrid, Valencia, Barcelona y Sevilla. Si estás en otra ubicación, contáctanos igualmente porque estamos en constante expansión.",
+      "Actualmente damos servicio en toda la provincia de Alicante. Si estás en otra ubicación, contáctanos igualmente porque estamos en constante expansión.",
   },
   {
     question: "¿Puedo cambiar o cancelar mi plan en cualquier momento?",
@@ -81,9 +81,8 @@ const FAQSection = () => {
                   <span className="text-sm md:text-base text-left">{faq.question}</span>
                 </div>
                 <ChevronDown
-                  className={`w-4 h-4 md:w-5 md:h-5 text-muted-foreground transition-transform duration-300 flex-shrink-0 ${
-                    openIndex === index ? "rotate-180" : ""
-                  }`}
+                  className={`w-4 h-4 md:w-5 md:h-5 text-muted-foreground transition-transform duration-300 flex-shrink-0 ${openIndex === index ? "rotate-180" : ""
+                    }`}
                 />
               </button>
               <div

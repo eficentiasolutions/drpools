@@ -13,19 +13,27 @@ const Footer = () => {
                 <img
                   src={logoImage}
                   alt="Agua Más Segura"
+                  loading="lazy"
+                  width="96"
+                  height="96"
                   className="h-16 md:h-24 w-auto object-contain"
                 />
               </div>
-              <span className="text-xl md:text-2xl font-bold">Agua Más Segura</span>
             </div>
             <p className="text-white/70 mb-4 md:mb-6 max-w-md text-sm md:text-base">
-              Transformamos el mantenimiento de tu piscina en una experiencia sin esfuerzo.
+              Elevamos el estándar en el cuidado de piscinas. Fusionamos experiencia técnica y servicio premium para garantizarte un agua impecable, saludable y lista para disfrutar todo el año.
             </p>
             <div className="flex gap-3 md:gap-4">
-              {[Facebook, Instagram].map((Icon, index) => (
+              {[
+                { Icon: Facebook, href: "https://www.facebook.com/profile.php?id=100063766951755", label: "Facebook" },
+                { Icon: Instagram, href: "#", label: "Instagram" }
+              ].map(({ Icon, href, label }, index) => (
                 <a
                   key={index}
-                  href="#"
+                  href={href}
+                  target={href !== "#" ? "_blank" : undefined}
+                  rel={href !== "#" ? "noopener noreferrer" : undefined}
+                  aria-label={label}
                   className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-secondary transition-colors"
                 >
                   <Icon className="w-4 h-4 md:w-5 md:h-5" />

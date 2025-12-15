@@ -1,12 +1,49 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
-import { useRef, useState } from "react";
-import { Send, Phone, Mail, MapPin, Clock, AlertTriangle } from "lucide-react";
+import { useRef, useState, useEffect } from "react";
+import { Send, Phone, Mail, MapPin, Clock, AlertTriangle, CheckCircle } from "lucide-react";
 import { toast } from "@/hooks/use-toast";
 
 const ContactSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const [selectedPlan, setSelectedPlan] = useState("");
+
+  useEffect(() => {
+    // Function to handle URL params (for external links)
+    const handleUrlParams = () => {
+      const searchParams = new URLSearchParams(window.location.search);
+      const planParam = searchParams.get('plan');
+      if (planParam) {
+        setSelectedPlan(decodeURIComponent(planParam));
+
+        // Scroll logic for URL params is handled natively by hash or here if needed
+        const contactSection = document.getElementById('contacto');
+        if (contactSection) {
+          // small timeout to ensure layout is stable
+          setTimeout(() => contactSection.scrollIntoView({ behavior: 'smooth' }), 100);
+        }
+
+        const newUrl = window.location.pathname + window.location.hash;
+        window.history.replaceState({}, '', newUrl);
+      }
+    };
+
+    // Function to handle internal event (smooth transition)
+    const handlePlanSelected = (e: CustomEvent) => {
+      setSelectedPlan(e.detail);
+      // Scroll is handled by the triggering element for better UX, 
+      // but we update state here immediately.
+    };
+
+    // Initialize
+    handleUrlParams();
+    window.addEventListener('plan-selected', handlePlanSelected as EventListener);
+
+    return () => {
+      window.removeEventListener('plan-selected', handlePlanSelected as EventListener);
+    };
+  }, []);
 
   return (
     <section ref={ref} className="py-12 md:py-20 lg:py-28 bg-muted" id="contacto">
@@ -114,14 +151,27 @@ const ContactSection = () => {
             transition={{ duration: 0.6, delay: 0.3 }}
           >
             <form
-              action="https://formsubmit.co/agencia.ia.tech@gmail.com"
+              action="https://formsubmit.co/ruben@aguamassegura.com"
               method="POST"
               className="bg-card rounded-2xl md:rounded-3xl shadow-sm p-5 md:p-8"
             >
               <input type="hidden" name="_next" value={`${typeof window !== "undefined" ? window.location.origin : ""}/gracias`} />
               <input type="hidden" name="_captcha" value="false" />
-              <input type="hidden" name="_subject" value="Nuevo contacto desde Agua Más Segura" />
+              <input type="hidden" name="_subject" value={`Nuevo contacto desde Agua Más Segura ${selectedPlan ? `- Interesado en ${selectedPlan}` : ''}`} />
               <input type="hidden" name="_template" value="table" />
+
+              {selectedPlan && (
+                <div className="mb-4 md:mb-6 bg-secondary/10 border border-secondary/20 rounded-lg p-3">
+                  <label className="block text-xs md:text-sm font-medium text-foreground mb-1">
+                    Plan seleccionado:
+                  </label>
+                  <div className="font-bold text-secondary text-sm md:text-base flex items-center gap-2">
+                    <CheckCircle className="w-4 h-4" />
+                    {selectedPlan}
+                  </div>
+                  <input type="hidden" name="plan_interes" value={selectedPlan} />
+                </div>
+              )}
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 mb-4 md:mb-6">
                 <div>
@@ -206,7 +256,7 @@ const ContactSection = () => {
                 className="btn-solid w-full flex items-center justify-center gap-2 md:gap-3"
               >
                 <Send className="w-4 h-4 md:w-5 md:h-5" />
-                Solicitar Inspección GRATIS
+                {selectedPlan ? `Solicitar ${selectedPlan}` : 'Solicitar Inspección GRATIS'}
               </button>
 
               <p className="text-center text-xs md:text-sm text-muted-foreground mt-3 md:mt-4">

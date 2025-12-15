@@ -1,58 +1,70 @@
+
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { Check, Star, Zap } from "lucide-react";
+import { Check, Star, Zap, Droplets, Sparkles, Crown, AlertCircle, Info } from "lucide-react";
 
 const plans = [
   {
-    name: "Básico",
-    price: "89",
-    period: "/mes",
-    description: "Perfecto para piscinas pequeñas y mantenimiento esencial",
+    name: "Plan Básico",
+    icon: Droplets,
+    price: "60",
+    period: " / visita",
+    description: "Lo justo para que todo funcione correctamente. Ideal si solo necesitas una revisión puntual.",
     features: [
-      "Limpieza semanal",
-      "Control químico básico",
-      "Revisión de filtros",
-      "Soporte por email",
-      "Informe mensual",
+      "1 visita técnica",
+      "Limpieza y enjuague del filtro",
+      "Puesta en marcha de la bomba",
+      "Limpieza del prefiltro",
+      "Revisión de válvulas",
+      "Comprobación consumo bomba",
+      "Revisión del cuadro eléctrico",
     ],
-    cta: "Empezar Ahora",
+    cta: "Solicitar Básico",
     featured: false,
+    note: "No incluye limpieza profunda ni control del estado del agua.",
+    noteType: "warning", // warning, info, success
   },
   {
-    name: "Premium",
+    name: "Plan Completo",
+    icon: Sparkles,
+    price: "120",
+    period: " / visita",
+    description: "Deja tu piscina lista para empezar la temporada. Perfecto para una puesta a punto.",
+    features: [
+      "1 visita completa",
+      "Todo lo incluido en el Plan Básico",
+      "Limpieza del fondo y skimmers",
+      "Limpieza de superficie y paredes",
+      "Limpieza línea de flotación",
+      "Análisis completo del agua",
+      "Ajuste de niveles químicos"
+    ],
+    cta: "Solicitar Completo",
+    featured: false,
+    note: "Productos químicos no incluidos.",
+    noteType: "info",
+  },
+  {
+    name: "Plan Premium",
+    icon: Crown,
     price: "149",
-    period: "/mes",
-    description: "La elección más popular para familias exigentes",
+    period: " / mes",
+    description: "Tu piscina siempre perfecta. La opción ideal para disfrutar sin preocupaciones.",
     features: [
-      "Todo del plan Básico",
-      "Limpieza 2x semana",
-      "Balance químico avanzado",
-      "Reparaciones menores incluidas",
-      "Soporte prioritario 24/7",
-      "App de seguimiento",
-      "Garantía de satisfacción",
+      "Visitas regulares todo el año",
+      "Todo lo incluido en el Plan Completo",
+      "Apertura y cierre de temporada",
+      "Productos químicos incluidos",
+      "Repuestos y mano de obra incluidos",
+      "50% dto. reparaciones mayores",
+      "Permanencia mínima 12 meses",
     ],
-    cta: "Elegir Premium",
+    cta: "Quiero el Premium",
     featured: true,
-    badge: "Más Popular",
-  },
-  {
-    name: "Anual",
-    price: "1.499",
-    period: "/año",
-    description: "Máximo ahorro con servicio completo todo el año",
-    features: [
-      "Todo del plan Premium",
-      "Ahorro de 2 meses",
-      "Apertura y cierre temporada",
-      "Reparaciones mayores -50%",
-      "Químicos incluidos",
-      "Prioridad absoluta",
-    ],
-    cta: "Máximo Ahorro",
-    featured: false,
-    badge: "Ahorra 20%",
+    badge: "Todo Incluido",
+    note: "Agua siempre segura  • Sin imprevistos • Tranquilidad total",
+    noteType: "success",
   },
 ];
 
@@ -78,7 +90,7 @@ const PricingSection = () => {
             <span className="gradient-text">Tranquilidad</span>
           </h2>
           <p className="text-muted-foreground text-sm md:text-lg max-w-2xl mx-auto px-2">
-            Sin sorpresas, sin letras pequeñas. Elige el plan que mejor se adapte a ti.
+            Elige cómo quieres cuidar tu piscina. Sin sorpresas.
           </p>
         </motion.div>
 
@@ -90,58 +102,89 @@ const PricingSection = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className={`pricing-card relative ${plan.featured ? "featured" : ""}`}
+              className={`pricing-card relative flex flex-col ${plan.featured ? "featured ring-2 ring-secondary" : ""}`}
             >
               {/* Badge */}
               {plan.badge && (
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-                  <span className="inline-flex items-center gap-1 bg-secondary text-secondary-foreground px-4 py-1 rounded-full text-sm font-bold">
-                    {plan.featured && <Star className="w-4 h-4" />}
+                <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-10">
+                  <span className="inline-flex items-center gap-1 bg-secondary text-secondary-foreground px-4 py-1.5 rounded-full text-sm font-bold shadow-lg whitespace-nowrap">
+                    {plan.featured && <Star className="w-4 h-4 fill-current" />}
                     {plan.badge}
                   </span>
                 </div>
               )}
 
-              <div className="text-center mb-6 md:mb-8">
-                <h3 className="text-lg md:text-xl font-bold text-foreground mb-2">
-                  {plan.name}
-                </h3>
-                <p className="text-muted-foreground text-xs md:text-sm mb-3 md:mb-4">
+              <div className="text-center mb-6 md:mb-8 pt-2">
+                <div className="flex items-center justify-center gap-2 mb-2">
+                  <plan.icon className={`w-6 h-6 ${plan.featured ? "text-secondary" : "text-primary"}`} />
+                  <h3 className="text-lg md:text-xl font-bold text-foreground">
+                    {plan.name}
+                  </h3>
+                </div>
+                <p className="text-muted-foreground text-xs md:text-sm mb-4 px-2 min-h-[40px] flex items-center justify-center">
                   {plan.description}
                 </p>
                 <div className="flex items-baseline justify-center">
-                  <span className="text-4xl md:text-5xl font-black text-foreground">
+                  <span className="text-4xl md:text-5xl font-black text-foreground tracking-tight">
                     {plan.price}€
                   </span>
-                  <span className="text-muted-foreground ml-1 text-sm">
+                  <span className="text-muted-foreground ml-1 text-sm font-medium">
                     {plan.period}
                   </span>
                 </div>
               </div>
 
               {/* Features */}
-              <ul className="space-y-3 md:space-y-4 mb-6 md:mb-8">
-                {plan.features.map((feature, i) => (
-                  <li key={i} className="flex items-start gap-2 md:gap-3">
-                    <div className="w-5 h-5 rounded-full bg-secondary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                      <Check className="w-3 h-3 text-secondary" />
-                    </div>
-                    <span className="text-foreground text-sm md:text-base">{feature}</span>
-                  </li>
-                ))}
-              </ul>
+              <div className="flex-grow">
+                <ul className="space-y-3 md:space-y-4 mb-6 md:mb-8">
+                  {plan.features.map((feature, i) => (
+                    <li key={i} className="flex items-start gap-3">
+                      <div className={`w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 ${plan.featured ? "bg-secondary/20 text-secondary" : "bg-muted-foreground/10 text-muted-foreground"}`}>
+                        <Check className="w-3.5 h-3.5" />
+                      </div>
+                      <span className="text-foreground text-sm leading-tight text-left">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Note / Warning */}
+              {plan.note && (
+                <div className={`text-xs text-center mb-6 px-3 py-3 rounded-lg border flex items-start justify-center gap-2 ${plan.noteType === 'warning' ? "bg-amber-50 border-amber-200 text-amber-800" :
+                  plan.noteType === 'info' ? "bg-blue-50 border-blue-200 text-blue-800" :
+                    "bg-green-50 border-green-200 text-green-800 font-medium"
+                  }`}>
+                  {plan.noteType === 'warning' && <AlertCircle className="w-4 h-4 flex-shrink-0 mt-0.5" />}
+                  {plan.noteType === 'info' && <Info className="w-4 h-4 flex-shrink-0 mt-0.5" />}
+                  {plan.noteType === 'success' && <Check className="w-4 h-4 flex-shrink-0 mt-0.5" />}
+                  <span className="text-left">{plan.note}</span>
+                </div>
+              )}
 
               {/* CTA */}
-              <a
-                href="#contacto"
-                className={`w-full py-3 md:py-4 rounded-xl font-bold text-center block transition-all duration-300 text-sm md:text-base ${
-                  plan.featured
-                    ? "btn-glow"
-                    : "bg-primary text-primary-foreground hover:bg-primary/90"
-                }`}
-              >
-                {plan.cta}
-              </a>
+              <div className="mt-auto">
+                <a
+                  href="#contacto"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    // Dispatch custom event for ContactSection
+                    const event = new CustomEvent('plan-selected', { detail: plan.name });
+                    window.dispatchEvent(event);
+
+                    // Smooth scroll directly
+                    const contactSection = document.getElementById('contacto');
+                    if (contactSection) {
+                      contactSection.scrollIntoView({ behavior: 'smooth' });
+                    }
+                  }}
+                  className={`w-full block text-center cursor-pointer ${plan.featured
+                    ? "btn-glow shadow-xl"
+                    : "btn-solid shadow-md hover:shadow-lg"
+                    }`}
+                >
+                  {plan.cta}
+                </a>
+              </div>
             </motion.div>
           ))}
         </div>
