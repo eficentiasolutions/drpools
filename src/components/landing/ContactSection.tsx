@@ -213,18 +213,7 @@ const ContactSection = () => {
                 />
               </div>
 
-              <div className="mb-4 md:mb-6">
-                <label className="block text-xs md:text-sm font-medium text-foreground mb-1.5 md:mb-2">
-                  Código Postal *
-                </label>
-                <input
-                  type="text"
-                  name="postal_code"
-                  required
-                  className="w-full px-3 md:px-4 py-2.5 md:py-3 rounded-lg md:rounded-xl border border-border bg-background text-foreground focus:ring-2 focus:ring-secondary focus:border-transparent transition-all text-sm md:text-base"
-                  placeholder="28001"
-                />
-              </div>
+
 
               <div className="mb-4 md:mb-6">
                 <label className="block text-xs md:text-sm font-medium text-foreground mb-1.5 md:mb-2">
