@@ -61,7 +61,7 @@ const ContactSection = () => {
           </span>
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-3 md:mb-4 px-2">
             Solicita Tu{" "}
-            <span className="gradient-text">Inspección Gratuita</span>
+            <span className="gradient-text">Revisión Gratuita</span>
           </h2>
           <p className="text-muted-foreground text-sm md:text-lg max-w-2xl mx-auto px-2">
             Déjanos tus datos y un experto te contactará en menos de 24 horas
@@ -162,7 +162,7 @@ const ContactSection = () => {
               <input type="hidden" name="_captcha" value="false" />
               <input type="hidden" name="_subject" value={`Nuevo contacto desde Agua Más Segura ${selectedPlan ? `- Interesado en ${selectedPlan}` : ''}`} />
               <input type="hidden" name="_template" value="table" />
-              <input type="hidden" name="Plan_Seleccionado" value={selectedPlan || "Inspección Gratuita (General)"} />
+              <input type="hidden" name="Plan_Seleccionado" value={selectedPlan || "Revisión Gratuita (General)"} />
 
               {selectedPlan && (
                 <div className="mb-4 md:mb-6 bg-secondary/10 border border-secondary/20 rounded-lg p-3">
@@ -248,7 +248,7 @@ const ContactSection = () => {
                 className="btn-solid w-full flex items-center justify-center gap-2 md:gap-3"
               >
                 <Send className="w-4 h-4 md:w-5 md:h-5" />
-                {selectedPlan ? `Solicitar ${selectedPlan}` : 'Solicitar Inspección GRATIS'}
+                {selectedPlan ? `Solicitar ${selectedPlan}` : 'Solicitar Revisión GRATIS'}
               </button>
 
               <p className="text-center text-xs md:text-sm text-muted-foreground mt-3 md:mt-4">
