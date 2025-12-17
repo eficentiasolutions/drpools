@@ -47,7 +47,7 @@ const ContactSection = () => {
   }, []);
 
   return (
-    <section ref={ref} className="py-12 md:py-20 lg:py-28 bg-muted" id="contacto">
+    <section ref={ref} className="py-12 md:py-20 lg:py-28 bg-muted overflow-hidden" id="contacto">
       <div className="container mx-auto px-4">
         {/* Section header */}
         <motion.div
