@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
 import { Send, Phone, Mail, MapPin, Clock, AlertTriangle, CheckCircle } from "lucide-react";
+import logoImage from "@/assets/drpools-logo.png";
 import { toast } from "@/hooks/use-toast";
 
 const ContactSection = () => {
@@ -56,7 +57,8 @@ const ContactSection = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-10 md:mb-16"
         >
-          <span className="inline-block text-secondary font-semibold text-xs md:text-sm uppercase tracking-wider mb-3 md:mb-4">
+          <span className="inline-flex items-center gap-2 text-secondary font-semibold text-xs md:text-sm uppercase tracking-wider mb-3 md:mb-4">
+            <img src={logoImage} alt="" className="w-4 h-4 object-contain" />
             📞 Contacto
           </span>
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-3 md:mb-4 px-2">
@@ -104,9 +106,7 @@ const ContactSection = () => {
                 <div>
                   <h4 className="font-semibold text-foreground text-sm md:text-base">Teléfono</h4>
                   <p className="text-muted-foreground text-xs md:text-base">
-                    <a href="tel:+34673329102" className="hover:text-secondary transition-colors">+ 34 673 329 102</a>
-                    {' / '}
-                    <a href="tel:+34965753198" className="hover:text-secondary transition-colors">+ 34 965 753 198</a>
+                    <a href="tel:+34643581150" className="hover:text-secondary transition-colors">+ 34 643 581 150</a>
                   </p>
                 </div>
               </div>
@@ -118,7 +118,7 @@ const ContactSection = () => {
                 <div>
                   <h4 className="font-semibold text-foreground text-sm md:text-base">Email</h4>
                   <p className="text-muted-foreground text-xs md:text-base">
-                    <a href="mailto:ruben@aguamassegura.com" className="hover:text-secondary transition-colors">ruben@aguamassegura.com</a>
+                    <a href="mailto:info@drpools.es" className="hover:text-secondary transition-colors">info@drpools.es</a>
                   </p>
                 </div>
               </div>
@@ -129,7 +129,7 @@ const ContactSection = () => {
                 </div>
                 <div>
                   <h4 className="font-semibold text-foreground text-sm md:text-base">Zonas</h4>
-                  <p className="text-muted-foreground text-xs md:text-base">Provincia de Alicante</p>
+                  <p className="text-muted-foreground text-xs md:text-base">Tenerife</p>
                 </div>
               </div>
 
@@ -154,13 +154,13 @@ const ContactSection = () => {
             transition={{ duration: 0.6, delay: 0.3 }}
           >
             <form
-              action="https://formsubmit.co/ruben@aguamassegura.com"
+              action="https://formsubmit.co/info@drpools.es"
               method="POST"
               className="bg-card rounded-2xl md:rounded-3xl shadow-sm p-5 md:p-8"
             >
               <input type="hidden" name="_next" value={`${typeof window !== "undefined" ? window.location.origin : ""}/gracias`} />
               <input type="hidden" name="_captcha" value="false" />
-              <input type="hidden" name="_subject" value={`Nuevo contacto desde Agua Más Segura ${selectedPlan ? `- Interesado en ${selectedPlan}` : ''}`} />
+              <input type="hidden" name="_subject" value={`Nuevo contacto desde DR Pools ${selectedPlan ? `- Interesado en ${selectedPlan}` : ''}`} />
               <input type="hidden" name="_template" value="table" />
               <input type="hidden" name="Plan_Seleccionado" value={selectedPlan || "Revisión Gratuita (General)"} />
 

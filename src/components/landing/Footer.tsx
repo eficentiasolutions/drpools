@@ -1,5 +1,5 @@
 import { Facebook, Instagram } from "lucide-react";
-import logoImage from "@/assets/logo-v3.png";
+import logoImage from "@/assets/drpools-logo.png";
 
 const Footer = () => {
   return (
@@ -12,11 +12,11 @@ const Footer = () => {
               <div>
                 <img
                   src={logoImage}
-                  alt="Agua Más Segura"
+                  alt="DR Pools"
                   loading="lazy"
                   width="96"
                   height="96"
-                  className="h-16 md:h-24 w-auto object-contain"
+                  className="h-10 md:h-14 w-auto object-contain drop-shadow-[0_0_2px_rgba(255,255,255,0.8)] filter"
                 />
               </div>
             </div>
@@ -94,10 +94,10 @@ const Footer = () => {
         {/* Bottom bar */}
         <div className="pt-6 md:pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-2 md:gap-4">
           <p className="text-white/50 text-xs md:text-sm">
-            © {new Date().getFullYear()} Agua Más Segura. Todos los derechos reservados.
+            © {new Date().getFullYear()} DR Pools. Todos los derechos reservados.
           </p>
           <p className="text-white/50 text-xs md:text-sm">
-            Hecho por <a href="https://eficentiasolutions.com" target="_blank" rel="noopener noreferrer">Eficentia Solutions</a> para AMS.
+            Hecho por <a href="https://eficentiasolutions.com" target="_blank" rel="noopener noreferrer">Eficentia Solutions</a> para DR Pools.
           </p>
         </div>
       </div>

@@ -4,51 +4,44 @@ import heroPoolImage from "@/assets/hero-pool.jpg";
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-screen overflow-hidden">
+    <section className="relative min-h-screen overflow-hidden bg-black">
       {/* Background Image */}
+      {/* Background Image - Nano Style Premium Pool */}
       <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url(${heroPoolImage})` }}
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-transform duration-1000 scale-105 opacity-90"
+        style={{ backgroundImage: `url('/src/assets/hero-pool-blue.png')` }}
       />
-      {/* Dark overlay for text readability */}
-      <div className="absolute inset-0 bg-gradient-to-b from-primary/80 via-primary/60 to-primary/80" />
 
-      {/* Water ripple effect */}
-      <div className="water-ripple" />
+      {/* Blue Filter Effect - Brand Integration */}
+      <div className="absolute inset-0 bg-brand-primary/50 mix-blend-multiply" />
+      <div className="absolute inset-0 bg-blue-900/30 mix-blend-overlay" />
+      <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/90 via-brand-dark/20 to-brand-dark/40" />
 
-      {/* Decorative elements */}
+      {/* Water ripple effect - Subtle */}
+      <div className="water-ripple opacity-20" />
+
+      {/* Decorative elements - Reverted to subtle glows */}
       <div className="absolute top-20 left-10 w-32 h-32 bg-white/5 rounded-full blur-3xl" />
       <div className="absolute bottom-20 right-10 w-48 h-48 bg-brand-teal/10 rounded-full blur-3xl" />
 
-      <div className="relative container mx-auto px-4 pt-24 pb-36 md:pt-32 md:pb-20 lg:pt-40 lg:pb-32">
-        <div className="max-w-4xl mx-auto text-center">
-          {/* Badge */}
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-3 py-1.5 md:px-4 md:py-2 rounded-full mb-6 md:mb-8"
-          >
-            <span className="w-2 h-2 bg-brand-teal-light rounded-full animate-pulse" />
-            <span className="text-white/90 text-xs md:text-sm font-medium">
-              +650 Familias Confían en Nosotros
-            </span>
-          </motion.div>
-
-          {/* Main H1 - The Hook */}
+      <div className="relative container mx-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-center min-h-screen pt-20 pb-24 md:pt-32 md:pb-32">
+        <div className="w-full max-w-4xl mx-auto text-center flex-1 flex flex-col justify-center">
+          {/* Main H1 - Cleaner Look */}
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black text-white leading-tight mb-4 md:mb-6"
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white leading-[1.1] mb-6 md:mb-8 tracking-tight"
           >
             ¿Tu piscina es un{" "}
-            <span className="font-extrabold text-secondary [-webkit-text-stroke:3px_white] [paint-order:stroke_fill]">placer</span> o una{" "}
-            <span className="relative">
-              <span className="relative z-10">carga</span>
-              <span className="absolute bottom-1 md:bottom-2 left-0 w-full h-2 md:h-3 bg-destructive/40 -z-0" />
+            <span className="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-brand-teal to-brand-primary-light">
+              placer
             </span>
-            ?
+            <br className="hidden sm:block" /> o una{" "}
+            <span className="relative inline-block whitespace-nowrap">
+              carga?
+              <span className="absolute bottom-2 left-0 w-full h-3 bg-brand-pain/60 -skew-x-6 -z-10" />
+            </span>
           </motion.h1>
 
           {/* Strong Promise */}
@@ -56,16 +49,16 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="mb-8 md:mb-10"
+            className="mb-8 md:mb-12"
           >
-            <div className="inline-block bg-white/10 backdrop-blur-md rounded-xl md:rounded-2xl px-4 py-3 md:px-8 md:py-5 border border-white/20">
-              <p className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold text-white">
-                🎁 <span className="hidden sm:inline">OFERTA LIMITADA: </span>
-                <span className="text-brand-teal-light">
+            <div className="inline-block bg-brand-primary/40 backdrop-blur-md rounded-2xl px-5 py-4 md:px-8 md:py-6 border border-white/10 shadow-xl hover:bg-brand-primary/50 transition-colors duration-300">
+              <p className="text-base sm:text-lg md:text-2xl font-bold text-white leading-tight">
+                🎁 <span className="opacity-90">OFERTA LIMITADA: </span>
+                <span className="text-brand-teal font-extrabold tracking-wide block sm:inline mt-1 sm:mt-0">
                   Revisión GRATIS
                 </span>
               </p>
-              <p className="text-white/70 text-xs md:text-sm mt-1">
+              <p className="text-brand-teal-light/80 text-xs sm:text-sm mt-2 font-medium tracking-wide uppercase">
                 Solo este mes • Cupos limitados
               </p>
             </div>
@@ -76,7 +69,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="mb-8 md:mb-12"
+            className="mb-10 md:mb-16"
           >
             <a
               href="#contacto"
@@ -89,7 +82,7 @@ const HeroSection = () => {
                   targetElement.scrollIntoView({ behavior: 'smooth' });
                 }
               }}
-              className="btn-solid inline-flex items-center gap-2 md:gap-3 text-base md:text-lg lg:text-xl"
+              className="btn-solid inline-flex items-center gap-3 text-base md:text-lg lg:text-xl py-4 px-8 shadow-lg shadow-brand-primary/20 hover:shadow-brand-primary/40"
             >
               <Droplets className="w-5 h-5 md:w-6 md:h-6" />
               Solicitar Revisión GRATIS
@@ -101,37 +94,37 @@ const HeroSection = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.5 }}
-            className="flex flex-wrap justify-center gap-4 md:gap-6 lg:gap-10"
+            className="flex flex-wrap justify-center gap-x-6 gap-y-3 sm:gap-8 lg:gap-12"
           >
             {[
               { icon: Shield, text: "Garantía 100%" },
               { icon: Clock, text: "Respuesta 24h" },
-              { icon: Droplets, text: "Químicos Certificados" },
-              { icon: UserCheck, text: "Técnicos Cualificados" },
+              { icon: Droplets, text: "Químicos Certif." },
+              { icon: UserCheck, text: "Técnicos Cualif." },
             ].map((item, index) => (
               <div
                 key={index}
-                className="flex items-center gap-1.5 md:gap-2 text-white/80"
+                className="flex items-center gap-2 text-white/90 bg-black/20 backdrop-blur-sm px-3 py-1.5 rounded-full sm:bg-transparent sm:px-0 sm:py-0"
               >
-                <item.icon className="w-4 h-4 md:w-5 md:h-5 text-brand-teal-light" />
-                <span className="text-xs md:text-sm font-medium">{item.text}</span>
+                <item.icon className="w-4 h-4 md:w-5 md:h-5 text-brand-teal" />
+                <span className="text-xs sm:text-sm font-medium whitespace-nowrap">{item.text}</span>
               </div>
             ))}
           </motion.div>
         </div>
 
-        {/* Scroll indicator */}
+        {/* Scroll indicator - Properly positioned */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.7 }}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2"
+          className="absolute bottom-6 left-1/2 -translate-x-1/2 hidden sm:block"
         >
-          <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center pt-2">
+          <div className="w-6 h-10 border-2 border-white/20 rounded-full flex justify-center pt-2 backdrop-blur-sm">
             <motion.div
               animate={{ y: [0, 12, 0] }}
               transition={{ duration: 1.5, repeat: Infinity }}
-              className="w-1.5 h-1.5 bg-white rounded-full"
+              className="w-1.5 h-1.5 bg-brand-teal rounded-full"
             />
           </div>
         </motion.div>

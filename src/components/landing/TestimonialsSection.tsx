@@ -2,30 +2,31 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { Star, Quote } from "lucide-react";
+import logoImage from "@/assets/drpools-logo.png";
 
 const testimonials = [
   {
-    name: "María García",
-    role: "Propietaria en Alicante",
-    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=face",
+    name: "Javier Méndez",
+    role: "Villa vacacional en Jávea",
+    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face",
     quote:
-      "Antes pasaba cada fin de semana luchando con el pH de mi piscina. Ahora simplemente la disfruto. El equipo es profesional y siempre disponible.",
+      "Vivo en Madrid y siempre me preocupaba el estado de la piscina al llegar. Con DR Pools, llego y el agua está perfecta cada vez. El servicio de reportes con fotos tras cada visita me da una tranquilidad total.",
     rating: 5,
   },
   {
-    name: "Carlos Rodríguez",
-    role: "Chalet en Alicante",
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face",
+    name: "Elena Torres",
+    role: "Administradora de Fincas",
+    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=100&h=100&fit=crop&crop=face",
     quote:
-      "La inspección gratuita me salvó de una fuga que no había detectado. Habrían sido miles de euros en reparaciones. 100% recomendados.",
+      "Gestionamos varias urbanizaciones de alto standing y la exigencia es máxima. Desde que contamos con ellos, las incidencias han bajado a cero. Son proactivos y extremadamente técnicos.",
     rating: 5,
   },
   {
-    name: "Ana Martínez",
-    role: "Comunidad de Vecinos",
-    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face",
+    name: "Roberto Sanchis",
+    role: "Chalet en Altea Hills",
+    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop&crop=face",
     quote:
-      "Gestionan la piscina de nuestra comunidad desde hace 3 años. Cero quejas de los vecinos y siempre está impecable. Precio muy competitivo.",
+      "Nuestra piscina se puso verde dos días antes de una fiesta importante. Vinieron de urgencia, diagnosticaron el problema y en 24 horas el agua estaba cristalina. Literalmente nos salvaron el evento.",
     rating: 5,
   },
 ];
@@ -36,7 +37,12 @@ const TestimonialsSection = () => {
 
   return (
     <section ref={ref} className="py-12 md:py-20 lg:py-28 bg-background">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 relative">
+        {/* Background Watermark */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-[0.03] pointer-events-none select-none z-0">
+          <img src={logoImage} alt="" className="w-[500px] h-[500px] object-contain grayscale" />
+        </div>
+
         {/* Section header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}

@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Droplets, Menu, X } from "lucide-react";
 import { useLocation } from "react-router-dom";
-import logoImage from "@/assets/logo-v3.png";
+import logoImage from "@/assets/drpools-logo.png";
 
 const navLinks = [
   { label: "Servicios", href: "#servicios" },
@@ -63,10 +63,10 @@ const Navbar = () => {
             <div className="transition-transform hover:scale-105">
               <img
                 src={logoImage}
-                alt="Agua Más Segura"
+                alt="DR Pools"
                 width="96"
                 height="96"
-                className="h-16 md:h-24 w-auto object-contain"
+                className="h-10 md:h-14 w-auto object-contain drop-shadow-[0_0_2px_rgba(255,255,255,0.8)] filter"
               />
             </div>
           </a>

@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { Check, Star, Zap, Droplets, Sparkles, Crown, AlertCircle, Info } from "lucide-react";
+import logoImage from "@/assets/drpools-logo.png";
 
 const plans = [
   {
@@ -104,6 +105,13 @@ const PricingSection = () => {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className={`pricing-card relative flex flex-col ${plan.featured ? "featured ring-2 ring-secondary" : ""}`}
             >
+              {/* Branding for Premium */}
+              {plan.featured && (
+                <div className="absolute top-4 right-4 opacity-10 pointer-events-none">
+                  <img src={logoImage} alt="" className="w-12 h-12 object-contain" />
+                </div>
+              )}
+
               {/* Badge */}
               {plan.badge && (
                 <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-10">

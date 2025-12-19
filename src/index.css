@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,12 +6,14 @@
 
 @layer base {
   :root {
-    /* Brand Colors - Pool Maintenance Theme */
-    --brand-primary: 208 100% 30%;
-    --brand-primary-light: 205 90% 45%;
-    --brand-teal: 195 100% 48%;
-    --brand-teal-light: 195 100% 55%;
-    --brand-dark: 210 50% 10%;
+    /* Brand Colors - DR Pools Identity */
+    --brand-primary: 220 90% 35%;
+    /* Royal Blue from logo */
+    --brand-primary-light: 220 80% 50%;
+    --brand-teal: 190 90% 50%;
+    /* Cyan/Aqua from logo */
+    --brand-teal-light: 190 90% 60%;
+    --brand-dark: 220 50% 10%;
     --brand-pain: 16 80% 40%;
     --brand-pain-light: 16 80% 96%;
 
@@ -94,7 +96,7 @@
   }
 
   body {
-    @apply bg-background text-foreground font-inter antialiased overflow-x-hidden;
+    @apply bg-background text-foreground font-poppins antialiased overflow-x-hidden;
   }
 }
 
@@ -110,7 +112,7 @@
     @apply scale-105;
     box-shadow: var(--shadow-glow-hover);
   }
-  
+
   /* Solid Button (No Glow) */
   .btn-solid {
     @apply relative px-6 py-3 md:px-8 md:py-4 bg-secondary text-secondary-foreground font-bold rounded-xl transition-all duration-300 ease-out transform text-sm md:text-base;
