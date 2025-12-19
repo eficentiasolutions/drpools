@@ -2,7 +2,6 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
 import { Send, Phone, Mail, MapPin, Clock, AlertTriangle, CheckCircle } from "lucide-react";
-import logoImage from "@/assets/drpools-logo.png";
 import { toast } from "@/hooks/use-toast";
 
 const ContactSection = () => {
@@ -58,7 +57,6 @@ const ContactSection = () => {
           className="text-center mb-10 md:mb-16"
         >
           <span className="inline-flex items-center gap-2 text-secondary font-semibold text-xs md:text-sm uppercase tracking-wider mb-3 md:mb-4">
-            <img src={logoImage} alt="" className="w-4 h-4 object-contain" />
             📞 Contacto
           </span>
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-3 md:mb-4 px-2">
