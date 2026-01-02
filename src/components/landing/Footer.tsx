@@ -16,17 +16,18 @@ const Footer = () => {
                   loading="lazy"
                   width="96"
                   height="96"
-                  className="h-10 md:h-14 w-auto object-contain drop-shadow-[0_0_2px_rgba(255,255,255,0.8)] filter"
+                  className="h-10 md:h-14 w-auto object-contain"
+                  style={{ filter: "drop-shadow(1px 0 0 white) drop-shadow(-1px 0 0 white) drop-shadow(0 1px 0 white) drop-shadow(0 -1px 0 white)" }}
                 />
               </div>
             </div>
             <p className="text-white/70 mb-4 md:mb-6 max-w-md text-sm md:text-base">
-              Elevamos el estándar en el cuidado de piscinas. Fusionamos experiencia técnica y servicio premium para garantizarte un agua impecable, saludable y lista para disfrutar todo el año.
+              Redefinimos la experiencia de tener piscina. Nuestro enfoque técnico y proactivo garantiza un agua saludable y cristalina siempre, para que tú solo te ocupes de lo importante: disfrutarla.
             </p>
             <div className="flex gap-3 md:gap-4">
               {[
-                { Icon: Facebook, href: "https://www.facebook.com/profile.php?id=100063766951755", label: "Facebook" },
-                { Icon: Instagram, href: "https://www.instagram.com/aguamassegura/", label: "Instagram" }
+                { Icon: Facebook, href: "", label: "Facebook" },
+                { Icon: Instagram, href: "", label: "Instagram" }
               ].map(({ Icon, href, label }, index) => (
                 <a
                   key={index}

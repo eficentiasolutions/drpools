@@ -7,26 +7,26 @@ import logoImage from "@/assets/drpools-logo.png";
 const testimonials = [
   {
     name: "Javier Méndez",
-    role: "Villa vacacional en Jávea",
+    role: "Villa vacacional en Costa Adeje",
     image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face",
     quote:
-      "Vivo en Madrid y siempre me preocupaba el estado de la piscina al llegar. Con DR Pools, llego y el agua está perfecta cada vez. El servicio de reportes con fotos tras cada visita me da una tranquilidad total.",
+      "Vivo en la península y siempre me preocupaba el estado de la piscina al llegar a la isla. Con DR Pools, llego y el agua está perfecta cada vez. El servicio de reportes con fotos tras cada visita me da una tranquilidad total.",
     rating: 5,
   },
   {
     name: "Elena Torres",
-    role: "Administradora de Fincas",
+    role: "Administradora de Fincas en Santa Cruz",
     image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=100&h=100&fit=crop&crop=face",
     quote:
-      "Gestionamos varias urbanizaciones de alto standing y la exigencia es máxima. Desde que contamos con ellos, las incidencias han bajado a cero. Son proactivos y extremadamente técnicos.",
+      "Gestionamos varias comunidades en el norte y sur de la isla, y la exigencia es máxima. Desde que contamos con ellos, las incidencias han bajado a cero. Son proactivos y conocen bien las particularidades del clima de aquí.",
     rating: 5,
   },
   {
     name: "Roberto Sanchis",
-    role: "Chalet en Altea Hills",
+    role: "Chalet en Puerto de la Cruz",
     image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop&crop=face",
     quote:
-      "Nuestra piscina se puso verde dos días antes de una fiesta importante. Vinieron de urgencia, diagnosticaron el problema y en 24 horas el agua estaba cristalina. Literalmente nos salvaron el evento.",
+      "Nuestra piscina se puso verde por la calima dos días antes de una fiesta. Vinieron de urgencia, diagnosticaron el problema y en 24 horas el agua estaba cristalina. Literalmente nos salvaron el evento.",
     rating: 5,
   },
 ];
@@ -38,18 +38,27 @@ const TestimonialsSection = () => {
   return (
     <section ref={ref} className="py-12 md:py-20 lg:py-28 bg-background">
       <div className="container mx-auto px-4 relative">
-        {/* Background Watermark */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-[0.03] pointer-events-none select-none z-0">
-          <img src={logoImage} alt="" className="w-[500px] h-[500px] object-contain grayscale" />
-        </div>
+
 
         {/* Section header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-10 md:mb-16"
+          className="text-center mb-10 md:mb-16 relative z-10"
         >
+          {/* Brand Logo - Centered and High Quality */}
+          <div className="flex justify-center mb-6">
+            <img
+              src={logoImage}
+              alt="DR Pools"
+              width="96"
+              height="96"
+              className="h-12 md:h-16 w-auto object-contain"
+              style={{ filter: "drop-shadow(1px 0 0 white) drop-shadow(-1px 0 0 white) drop-shadow(0 1px 0 white) drop-shadow(0 -1px 0 white)" }}
+            />
+          </div>
+
           <span className="inline-block text-secondary font-semibold text-xs md:text-sm uppercase tracking-wider mb-3 md:mb-4">
             💬 Testimonios Reales
           </span>
@@ -63,7 +72,7 @@ const TestimonialsSection = () => {
         </motion.div>
 
         {/* Testimonials Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 relative z-10">
           {testimonials.map((testimonial, index) => (
             <motion.div
               key={index}
@@ -82,7 +91,7 @@ const TestimonialsSection = () => {
                 {[...Array(testimonial.rating)].map((_, i) => (
                   <Star
                     key={i}
-                    className="w-5 h-5 fill-yellow-400 text-yellow-400"
+                    className="w-5 h-5 fill-yellow-500 text-yellow-500"
                   />
                 ))}
               </div>

@@ -1,46 +1,47 @@
 import { motion } from "framer-motion";
 import { Droplets, Shield, Clock, UserCheck } from "lucide-react";
-import heroPoolImage from "@/assets/hero-pool.jpg";
+import heroPoolPremium from "@/assets/hero-pool-maintenance-v2.png";
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-screen overflow-hidden bg-black">
+    <section className="relative min-h-screen overflow-hidden bg-slate-50">
       {/* Background Image */}
       {/* Background Image - Nano Style Premium Pool */}
       <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-transform duration-1000 scale-105 opacity-90"
-        style={{ backgroundImage: `url('/src/assets/hero-pool-blue.png')` }}
+        className="absolute inset-0 bg-cover bg-bottom md:bg-center bg-no-repeat transition-transform duration-1000 scale-[1.35] origin-bottom md:scale-105 md:origin-center opacity-100"
+        style={{ backgroundImage: `url(${heroPoolPremium})` }}
       />
 
-      {/* Blue Filter Effect - Brand Integration */}
-      <div className="absolute inset-0 bg-brand-primary/50 mix-blend-multiply" />
-      <div className="absolute inset-0 bg-blue-900/30 mix-blend-overlay" />
-      <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/90 via-brand-dark/20 to-brand-dark/40" />
+      {/* Light/Blue Filter Effect - Fresh & Premium */}
+      <div className="absolute inset-0 bg-cyan-50/30 mix-blend-overlay" />
+      <div className="absolute inset-0 bg-gradient-to-tr from-white/60 via-transparent to-white/40" />
+      <div className="absolute inset-0 bg-gradient-to-t from-white via-white/40 to-transparent" />
 
       {/* Water ripple effect - Subtle */}
-      <div className="water-ripple opacity-20" />
+      <div className="water-ripple opacity-10" />
 
-      {/* Decorative elements - Reverted to subtle glows */}
-      <div className="absolute top-20 left-10 w-32 h-32 bg-white/5 rounded-full blur-3xl" />
-      <div className="absolute bottom-20 right-10 w-48 h-48 bg-brand-teal/10 rounded-full blur-3xl" />
+      {/* Decorative elements - Subtle gradients */}
+      <div className="absolute top-20 left-10 w-32 h-32 bg-brand-teal/20 rounded-full blur-3xl mix-blend-multiply" />
+      <div className="absolute bottom-20 right-10 w-48 h-48 bg-brand-primary/10 rounded-full blur-3xl mix-blend-multiply" />
 
       <div className="relative container mx-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-center min-h-screen pt-20 pb-24 md:pt-32 md:pb-32">
         <div className="w-full max-w-4xl mx-auto text-center flex-1 flex flex-col justify-center">
-          {/* Main H1 - Cleaner Look */}
+          {/* Main H1 - Cleaner Look - Dark Text */}
+          {/* Main H1 - Cleaner Look - Uniform Blue with White Stroke */}
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white leading-[1.1] mb-6 md:mb-8 tracking-tight"
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-slate-800 leading-[1.1] mb-6 md:mb-8 tracking-tight"
           >
             ¿Tu piscina es un{" "}
-            <span className="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-brand-teal to-brand-primary-light">
+            <span className="font-extrabold text-secondary" style={{ WebkitTextStroke: '2px white', paintOrder: 'stroke fill' }}>
               placer
             </span>
             <br className="hidden sm:block" /> o una{" "}
-            <span className="relative inline-block whitespace-nowrap">
-              carga?
-              <span className="absolute bottom-2 left-0 w-full h-3 bg-brand-pain/60 -skew-x-6 -z-10" />
+            <span className="relative inline-block whitespace-nowrap px-1">
+              <span className="absolute bottom-1 left-0 w-full h-3 bg-brand-pain/40 -skew-x-6"></span>
+              <span className="relative font-bold">carga?</span>
             </span>
           </motion.h1>
 
@@ -51,14 +52,14 @@ const HeroSection = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="mb-8 md:mb-12"
           >
-            <div className="inline-block bg-brand-primary/40 backdrop-blur-md rounded-2xl px-5 py-4 md:px-8 md:py-6 border border-white/10 shadow-xl hover:bg-brand-primary/50 transition-colors duration-300">
-              <p className="text-base sm:text-lg md:text-2xl font-bold text-white leading-tight">
+            <div className="inline-block bg-white/90 backdrop-blur-md rounded-2xl px-5 py-4 md:px-8 md:py-6 border border-brand-primary/10 shadow-2xl hover:bg-white transition-colors duration-300">
+              <p className="text-base sm:text-lg md:text-2xl font-bold text-brand-dark leading-tight">
                 🎁 <span className="opacity-90">OFERTA LIMITADA: </span>
-                <span className="text-brand-teal font-extrabold tracking-wide block sm:inline mt-1 sm:mt-0">
+                <span className="text-brand-primary font-extrabold tracking-wide block sm:inline mt-1 sm:mt-0">
                   Revisión GRATIS
                 </span>
               </p>
-              <p className="text-brand-teal-light/80 text-xs sm:text-sm mt-2 font-medium tracking-wide uppercase">
+              <p className="text-brand-primary/80 text-xs sm:text-sm mt-2 font-medium tracking-wide uppercase">
                 Solo este mes • Cupos limitados
               </p>
             </div>
@@ -85,7 +86,7 @@ const HeroSection = () => {
               className="btn-solid inline-flex items-center gap-3 text-base md:text-lg lg:text-xl py-4 px-8 shadow-lg shadow-brand-primary/20 hover:shadow-brand-primary/40"
             >
               <Droplets className="w-5 h-5 md:w-6 md:h-6" />
-              Solicitar Revisión GRATIS
+              Quiero mi Revisión GRATIS
             </a>
           </motion.div>
 
@@ -104,10 +105,10 @@ const HeroSection = () => {
             ].map((item, index) => (
               <div
                 key={index}
-                className="flex items-center gap-2 text-white/90 bg-black/20 backdrop-blur-sm px-3 py-1.5 rounded-full sm:bg-transparent sm:px-0 sm:py-0"
+                className="flex items-center gap-2 text-brand-dark bg-white/70 backdrop-blur-md px-4 py-2 rounded-full shadow-lg border border-white/20 font-medium transition-transform hover:scale-105"
               >
-                <item.icon className="w-4 h-4 md:w-5 md:h-5 text-brand-teal" />
-                <span className="text-xs sm:text-sm font-medium whitespace-nowrap">{item.text}</span>
+                <item.icon className="w-4 h-4 md:w-5 md:h-5 text-secondary" />
+                <span className="text-xs sm:text-sm whitespace-nowrap">{item.text}</span>
               </div>
             ))}
           </motion.div>
@@ -120,11 +121,11 @@ const HeroSection = () => {
           transition={{ duration: 0.6, delay: 0.7 }}
           className="absolute bottom-6 left-1/2 -translate-x-1/2 hidden sm:block"
         >
-          <div className="w-6 h-10 border-2 border-white/20 rounded-full flex justify-center pt-2 backdrop-blur-sm">
+          <div className="w-6 h-10 border-2 border-brand-dark/20 rounded-full flex justify-center pt-2 backdrop-blur-sm">
             <motion.div
               animate={{ y: [0, 12, 0] }}
               transition={{ duration: 1.5, repeat: Infinity }}
-              className="w-1.5 h-1.5 bg-brand-teal rounded-full"
+              className="w-1.5 h-1.5 bg-brand-primary rounded-full"
             />
           </div>
         </motion.div>

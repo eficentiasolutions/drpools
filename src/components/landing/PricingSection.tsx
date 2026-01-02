@@ -2,7 +2,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { Check, Star, Zap, Droplets, Sparkles, Crown, AlertCircle, Info } from "lucide-react";
+import { Check, X, Star, Zap, Droplets, Sparkles, Crown, AlertCircle, Info } from "lucide-react";
 import logoImage from "@/assets/drpools-logo.png";
 
 const plans = [
@@ -11,15 +11,14 @@ const plans = [
     icon: Droplets,
     price: "60",
     period: " / visita",
-    description: "Lo justo para que todo funcione correctamente. Ideal si solo necesitas una revisión puntual.",
+    description: "Lo esencial para asegurar el funcionamiento. Ideal para revisiones puntuales.",
     features: [
-      "1 visita técnica",
-      "Limpieza y enjuague del filtro",
-      "Puesta en marcha de la bomba",
-      "Limpieza del prefiltro",
-      "Revisión de válvulas",
-      "Comprobación consumo bomba",
-      "Revisión del cuadro eléctrico",
+      { text: "Revisión técnica de equipos", included: true },
+      { text: "Limpieza de filtros y bomba", included: true },
+      { text: "Limpieza de fondo y paredes", included: false },
+      { text: "Analítica y ajuste químico", included: false },
+      { text: "Productos químicos incluidos", included: false },
+      { text: "Garantía repuestos incluida", included: false },
     ],
     cta: "Solicitar Básico",
     featured: false,
@@ -31,18 +30,18 @@ const plans = [
     icon: Sparkles,
     price: "120",
     period: " / visita",
-    description: "Deja tu piscina lista para empezar la temporada. Perfecto para una puesta a punto.",
+    description: "Puesta a punto integral. Tu piscina limpia y equilibrada en una visita.",
     features: [
-      "1 visita completa",
-      "Todo lo incluido en el Plan Básico",
-      "Limpieza del fondo y skimmers",
-      "Limpieza de superficie y paredes",
-      "Limpieza línea de flotación",
-      "Análisis completo del agua",
-      "Ajuste de niveles químicos"
+      { text: "Revisión técnica de equipos", included: true },
+      { text: "Limpieza de filtros y bomba", included: true },
+      { text: "Limpieza de fondo y paredes", included: true },
+      { text: "Analítica y ajuste químico", included: true },
+      { text: "Productos químicos incluidos", included: false },
+      { text: "Garantía repuestos incluida", included: false },
     ],
     cta: "Solicitar Completo",
-    featured: false,
+    featured: true,
+    badge: "MÁS ELEGIDO",
     note: "Productos químicos no incluidos.",
     noteType: "info",
   },
@@ -51,19 +50,17 @@ const plans = [
     icon: Crown,
     price: "149",
     period: " / mes",
-    description: "Tu piscina siempre perfecta. La opción ideal para disfrutar sin preocupaciones.",
+    description: "Tranquilidad absoluta todo el año. Nosotros nos ocupamos de todo.",
     features: [
-      "Visitas regulares todo el año",
-      "Todo lo incluido en el Plan Completo",
-      "Apertura y cierre de temporada",
-      "Productos químicos incluidos",
-      "Repuestos y mano de obra incluidos",
-      "50% dto. reparaciones mayores",
-      "Permanencia mínima 12 meses",
+      { text: "Revisión técnica de equipos", included: true },
+      { text: "Limpieza de filtros y bomba", included: true },
+      { text: "Limpieza de fondo y paredes", included: true },
+      { text: "Analítica y ajuste químico", included: true },
+      { text: "Productos químicos incluidos", included: true },
+      { text: "Garantía repuestos incluida", included: true },
     ],
     cta: "Quiero el Premium",
-    featured: true,
-    badge: "Todo Incluido",
+    featured: false,
     note: "Agua siempre segura  • Sin imprevistos • Tranquilidad total",
     noteType: "success",
   },
@@ -96,35 +93,33 @@ const PricingSection = () => {
         </motion.div>
 
         {/* Pricing Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto items-center">
           {plans.map((plan, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className={`pricing-card relative flex flex-col ${plan.featured ? "featured ring-2 ring-secondary" : ""}`}
+              className={`pricing-card relative flex flex-col transition-all duration-300 ${plan.featured
+                  ? "md:scale-105 z-10 shadow-2xl border-2 border-secondary/20 ring-4 ring-secondary/5"
+                  : "border border-border/50 shadow-md hover:shadow-lg"
+                }`}
             >
-              {/* Branding for Premium */}
-              {plan.featured && (
-                <div className="absolute top-4 right-4 opacity-10 pointer-events-none">
-                  <img src={logoImage} alt="" className="w-12 h-12 object-contain" />
-                </div>
-              )}
+              {/* Scale effect on desktop */}
 
-              {/* Badge */}
+              {/* Badge for Featured */}
               {plan.badge && (
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-10">
-                  <span className="inline-flex items-center gap-1 bg-secondary text-secondary-foreground px-4 py-1.5 rounded-full text-sm font-bold shadow-lg whitespace-nowrap">
-                    {plan.featured && <Star className="w-4 h-4 fill-current" />}
+                <div className="absolute -top-5 left-1/2 -translate-x-1/2 z-20">
+                  <span className="inline-flex items-center gap-1 bg-orange-500 text-white px-6 py-2 rounded-full text-sm font-extrabold shadow-lg whitespace-nowrap tracking-wide">
+                    {plan.featured && <Star className="w-4 h-4 fill-white text-white" />}
                     {plan.badge}
                   </span>
                 </div>
               )}
 
-              <div className="text-center mb-6 md:mb-8 pt-2">
+              <div className="text-center mb-6 md:mb-8 pt-4">
                 <div className="flex items-center justify-center gap-2 mb-2">
-                  <plan.icon className={`w-6 h-6 ${plan.featured ? "text-secondary" : "text-primary"}`} />
+                  <plan.icon className={`w-6 h-6 ${index === 0 ? "text-cyan-500" : index === 2 ? "text-yellow-500" : "text-secondary"}`} />
                   <h3 className="text-lg md:text-xl font-bold text-foreground">
                     {plan.name}
                   </h3>
@@ -133,7 +128,7 @@ const PricingSection = () => {
                   {plan.description}
                 </p>
                 <div className="flex items-baseline justify-center">
-                  <span className="text-4xl md:text-5xl font-black text-foreground tracking-tight">
+                  <span className={`text-4xl md:text-5xl font-black tracking-tight ${plan.featured ? "text-secondary" : "text-foreground"}`}>
                     {plan.price}€
                   </span>
                   <span className="text-muted-foreground ml-1 text-sm font-medium">
@@ -146,11 +141,20 @@ const PricingSection = () => {
               <div className="flex-grow">
                 <ul className="space-y-3 md:space-y-4 mb-6 md:mb-8">
                   {plan.features.map((feature, i) => (
-                    <li key={i} className="flex items-start gap-3">
-                      <div className={`w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 ${plan.featured ? "bg-secondary/20 text-secondary" : "bg-muted-foreground/10 text-muted-foreground"}`}>
-                        <Check className="w-3.5 h-3.5" />
-                      </div>
-                      <span className="text-foreground text-sm leading-tight text-left">{feature}</span>
+                    <li key={i} className={`flex items-start gap-3 ${feature.included ? "" : "opacity-50"}`}>
+                      {feature.included ? (
+                        <div className={`w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 ${plan.featured ? "bg-secondary text-white" : "bg-green-100 text-green-600"}`}>
+                          <Check className="w-3.5 h-3.5" />
+                        </div>
+                      ) : (
+                        <div className="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 bg-slate-100 text-slate-400">
+                          <X className="w-3.5 h-3.5" />
+                        </div>
+                      )}
+
+                      <span className={`text-sm leading-tight text-left ${feature.included ? "text-foreground font-medium" : "text-muted-foreground strike-through"}`}>
+                        {feature.text}
+                      </span>
                     </li>
                   ))}
                 </ul>
@@ -185,9 +189,9 @@ const PricingSection = () => {
                       targetElement.scrollIntoView({ behavior: 'smooth' });
                     }
                   }}
-                  className={`w-full block text-center cursor-pointer ${plan.featured
-                    ? "btn-glow shadow-xl"
-                    : "btn-solid shadow-md hover:shadow-lg"
+                  className={`w-full block text-center cursor-pointer transition-all duration-300 py-3.5 rounded-xl font-bold ${plan.featured
+                    ? "bg-secondary text-white shadow-lg shadow-secondary/30 hover:scale-[1.02] hover:shadow-xl"
+                    : "bg-white text-secondary border-2 border-secondary hover:bg-secondary/5"
                     }`}
                 >
                   {plan.cta}

@@ -53,20 +53,21 @@ const Navbar = () => {
       transition={{ duration: 0.5 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled || isMobileMenuOpen
         ? "bg-white/95 backdrop-blur-md shadow-sm"
-        : "bg-gradient-to-b from-black/50 to-transparent"
+        : "bg-gradient-to-b from-white/90 to-transparent"
         }`}
     >
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between py-2 md:py-4">
+        <div className="flex items-center justify-between py-3 md:py-4">
           {/* Logo */}
           <a href="/" className="flex items-center gap-2" aria-label="Inicio">
-            <div className="transition-transform hover:scale-105">
+            <div className="transition-transform hover:scale-105 relative">
               <img
                 src={logoImage}
                 alt="DR Pools"
                 width="96"
                 height="96"
-                className="h-10 md:h-14 w-auto object-contain drop-shadow-[0_0_2px_rgba(255,255,255,0.8)] filter"
+                className="h-12 md:h-14 w-auto object-contain max-w-[140px] md:max-w-none"
+                style={{ filter: "drop-shadow(1px 0 0 white) drop-shadow(-1px 0 0 white) drop-shadow(0 1px 0 white) drop-shadow(0 -1px 0 white)" }}
               />
             </div>
           </a>
@@ -77,7 +78,7 @@ const Navbar = () => {
               <a
                 key={link.label}
                 href={getHref(link.href)}
-                className={`font-medium transition-colors hover:text-secondary ${isScrolled || isMobileMenuOpen ? "text-foreground" : "text-white"
+                className={`font-medium transition-colors hover:text-brand-primary ${isScrolled || isMobileMenuOpen ? "text-foreground" : "text-brand-dark/90"
                   }`}
               >
                 {link.label}
@@ -88,7 +89,7 @@ const Navbar = () => {
               onClick={handleCtaClick}
               className={`px-6 py-2.5 rounded-xl font-bold transition-all ${isScrolled || isMobileMenuOpen
                 ? "bg-secondary text-white hover:bg-secondary/90"
-                : "bg-white text-primary hover:bg-white/90"
+                : "bg-brand-primary text-white hover:bg-brand-primary/90 shadow-lg shadow-brand-primary/20"
                 }`}
             >
               Revisión Gratuita
@@ -99,7 +100,7 @@ const Navbar = () => {
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label={isMobileMenuOpen ? "Cerrar menú" : "Abrir menú"}
-            className={`md:hidden p-2 rounded-lg ${isScrolled || isMobileMenuOpen ? "text-foreground" : "text-white"
+            className={`md:hidden p-2 rounded-lg ${isScrolled || isMobileMenuOpen ? "text-foreground" : "text-brand-dark"
               }`}
           >
             {isMobileMenuOpen ? (

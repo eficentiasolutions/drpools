@@ -3,6 +3,7 @@ import { useInView } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
 import { Send, Phone, Mail, MapPin, Clock, AlertTriangle, CheckCircle } from "lucide-react";
 import { toast } from "@/hooks/use-toast";
+import logoImage from "@/assets/drpools-logo.png";
 
 const ContactSection = () => {
   const ref = useRef(null);
@@ -47,8 +48,16 @@ const ContactSection = () => {
   }, []);
 
   return (
-    <section ref={ref} className="py-12 md:py-20 lg:py-28 bg-muted overflow-hidden" id="contacto">
-      <div className="container mx-auto px-4">
+    <section ref={ref} className="py-12 md:py-20 lg:py-28 bg-muted overflow-hidden relative" id="contacto">
+      <div className="absolute top-1/2 right-1/2 md:right-0 md:top-20 translate-x-1/2 md:translate-x-1/4 -translate-y-1/2 opacity-[0.07] pointer-events-none select-none z-0">
+        <img
+          src={logoImage}
+          alt="DR Pools Brand"
+          loading="lazy"
+          className="w-[300px] h-[300px] md:w-[600px] md:h-[600px] object-contain rotate-[-15deg] grayscale"
+        />
+      </div>
+      <div className="container mx-auto px-4 relative z-10">
         {/* Section header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}

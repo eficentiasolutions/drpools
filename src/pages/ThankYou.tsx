@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { CheckCircle } from "lucide-react";
 import confetti from "canvas-confetti";
 import { Helmet } from "react-helmet";
+import logoImage from "@/assets/drpools-logo.png";
 
 const ThankYou = () => {
     const isMounted = useRef(false);
@@ -48,15 +49,31 @@ const ThankYou = () => {
     }, []);
 
     return (
-        <div className="flex min-h-screen items-center justify-center bg-background px-4">
+        <div className="flex min-h-screen items-center justify-center bg-background px-4 relative overflow-hidden">
             <Helmet>
-                <title>¡Gracias por contactarnos! | Agua Más Segura</title>
+                <title>¡Gracias por contactarnos! | DR Pools</title>
                 <meta name="description" content="Hemos recibido tu solicitud correctamente. Te contactaremos pronto." />
                 <meta name="robots" content="noindex" />
             </Helmet>
 
-            <div className="mx-auto max-w-md text-center">
-                <div className="mb-6 flex justify-center">
+            {/* Background Watermark */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-[0.03] pointer-events-none select-none z-0">
+                <img
+                    src={logoImage}
+                    alt="DR Pools Brand"
+                    loading="lazy"
+                    className="w-[600px] h-[600px] object-contain opacity-50 grayscale"
+                />
+            </div>
+
+            <div className="mx-auto max-w-md text-center relative z-10">
+                <div className="mb-8 flex justify-center flex-col items-center gap-6">
+                    <img
+                        src={logoImage}
+                        alt="DR Pools"
+                        loading="lazy"
+                        className="h-16 w-auto object-contain drop-shadow-md"
+                    />
                     <div className="rounded-full bg-green-100 p-4 drop-shadow-lg animate-bounce">
                         <CheckCircle className="h-16 w-16 text-green-600" />
                     </div>
@@ -67,7 +84,7 @@ const ThankYou = () => {
                 </h1>
 
                 <p className="mb-8 text-lg text-muted-foreground">
-                    Gracias por confiar en Agua Más Segura. Hemos recibido tus datos y uno de nuestros expertos se pondrá en contacto contigo en menos de 24 horas.
+                    Gracias por confiar en <strong>DR Pools</strong>. Hemos recibido tus datos y uno de nuestros expertos se pondrá en contacto contigo en menos de 24 horas.
                 </p>
 
                 <p className="mb-8 text-sm text-gray-400">

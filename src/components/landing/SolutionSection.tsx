@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { Sparkles, FlaskConical, Wrench, Clock, Shield, Leaf } from "lucide-react";
+import logoImage from "@/assets/drpools-logo.png";
 
 const services = [
   {
@@ -57,7 +58,15 @@ const SolutionSection = () => {
 
   return (
     <section ref={ref} className="py-12 md:py-20 lg:py-28 bg-background relative overflow-hidden">
-      <div className="container mx-auto px-4">
+      <div className="absolute bottom-0 right-0 translate-x-1/4 translate-y-1/4 opacity-[0.04] pointer-events-none select-none z-0">
+        <img
+          src={logoImage}
+          alt="DR Pools Brand"
+          loading="lazy"
+          className="w-[800px] h-[800px] object-contain -rotate-12"
+        />
+      </div>
+      <div className="container mx-auto px-4 relative z-10">
         {/* Section header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -121,19 +130,22 @@ const SolutionSection = () => {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6 bg-muted rounded-2xl md:rounded-3xl p-4 md:p-8"
         >
-          {benefits.map((benefit, index) => (
-            <div key={index} className="flex items-start gap-3 md:gap-4">
-              <div className="w-10 h-10 md:w-12 md:h-12 rounded-lg md:rounded-xl bg-secondary/10 flex items-center justify-center flex-shrink-0">
-                <benefit.icon className="w-5 h-5 md:w-6 md:h-6 text-secondary" />
+          {benefits.map((benefit, index) => {
+            const isEco = benefit.title === "Eco-Friendly";
+            return (
+              <div key={index} className="flex items-start gap-3 md:gap-4">
+                <div className={`w-10 h-10 md:w-12 md:h-12 rounded-lg md:rounded-xl flex items-center justify-center flex-shrink-0 ${isEco ? "bg-green-500/10" : "bg-secondary/10"}`}>
+                  <benefit.icon className={`w-5 h-5 md:w-6 md:h-6 ${isEco ? "text-green-600" : "text-secondary"}`} />
+                </div>
+                <div>
+                  <h4 className="font-bold text-foreground text-sm md:text-base">{benefit.title}</h4>
+                  <p className="text-xs md:text-sm text-muted-foreground">
+                    {benefit.description}
+                  </p>
+                </div>
               </div>
-              <div>
-                <h4 className="font-bold text-foreground text-sm md:text-base">{benefit.title}</h4>
-                <p className="text-xs md:text-sm text-muted-foreground">
-                  {benefit.description}
-                </p>
-              </div>
-            </div>
-          ))}
+            );
+          })}
         </motion.div>
       </div>
     </section>

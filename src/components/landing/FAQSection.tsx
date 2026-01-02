@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import { ChevronDown, HelpCircle } from "lucide-react";
+import logoImage from "@/assets/drpools-logo.png";
 
 const faqs = [
   {
@@ -12,7 +13,7 @@ const faqs = [
   {
     question: "¿Con qué frecuencia necesita mantenimiento mi piscina?",
     answer:
-      "Depende del uso y tamaño, pero generalmente recomendamos mantenimiento semanal durante la temporada de uso intensivo (mayo-septiembre) y quincenal el resto del año. Nuestros planes se adaptan a tus necesidades específicas.",
+      "En Tenerife, debido a nuestro clima privilegiado, la piscina se disfruta todo el año. Recomendamos mantenimiento semanal para garantizar la calidad del agua constante, aunque nuestros planes se adaptan si tienes un uso más estacional.",
   },
   {
     question: "¿Qué pasa si no estoy satisfecho con el servicio?",
@@ -27,7 +28,7 @@ const faqs = [
   {
     question: "¿Trabajan en mi zona?",
     answer:
-      "Actualmente damos servicio en toda la provincia de Alicante. Si estás en otra ubicación, contáctanos igualmente porque estamos en constante expansión.",
+      "Actualmente damos servicio en toda la isla de Tenerife. Contáctanos para confirmar disponibilidad en tu ubicación específica.",
   },
   {
     question: "¿Puedo cambiar o cancelar mi plan en cualquier momento?",
@@ -43,14 +44,34 @@ const FAQSection = () => {
 
   return (
     <section ref={ref} className="py-12 md:py-20 lg:py-28 bg-background">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 relative">
+        {/* Background Watermark */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-[0.05] pointer-events-none select-none z-0">
+          <img
+            src={logoImage}
+            alt="DR Pools Brand"
+            className="w-[600px] h-[600px] object-contain rotate-12"
+          />
+        </div>
         {/* Section header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-10 md:mb-16"
+          className="text-center mb-10 md:mb-16 relative z-10"
         >
+          {/* Brand Logo - Centered and High Quality */}
+          <div className="flex justify-center mb-6">
+            <img
+              src={logoImage}
+              alt="DR Pools"
+              width="96"
+              height="96"
+              className="h-12 md:h-16 w-auto object-contain"
+              style={{ filter: "drop-shadow(1px 0 0 white) drop-shadow(-1px 0 0 white) drop-shadow(0 1px 0 white) drop-shadow(0 -1px 0 white)" }}
+            />
+          </div>
+
           <span className="inline-block text-secondary font-semibold text-xs md:text-sm uppercase tracking-wider mb-3 md:mb-4">
             ❓ Preguntas Frecuentes
           </span>
@@ -68,7 +89,7 @@ const FAQSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="max-w-3xl mx-auto bg-card rounded-2xl md:rounded-3xl shadow-sm p-4 md:p-6 lg:p-8"
+          className="max-w-3xl mx-auto bg-card rounded-2xl md:rounded-3xl shadow-sm p-4 md:p-6 lg:p-8 relative z-10"
         >
           {faqs.map((faq, index) => (
             <div key={index} className="faq-item">
