@@ -24,7 +24,7 @@ const Index = () => {
         />
         <meta
           name="keywords"
-          content="mantenimiento piscinas, limpieza piscinas, balance químico piscina, servicio piscinas Madrid, mantenimiento piscinas Valencia"
+          content="mantenimiento piscinas, limpieza piscinas, balance químico piscina, servicio piscinas Tenerife, mantenimiento piscinas"
         />
         <meta property="og:title" content="DR Pools | Mantenimiento Profesional de Piscinas" />
         <meta
@@ -32,7 +32,7 @@ const Index = () => {
           content="¿Tu piscina es un placer o una carga? Recupera 80h/año con nuestro servicio profesional. Inspección GRATIS."
         />
         <meta property="og:type" content="website" />
-        <link rel="canonical" href="https://smartpool.es" />
+        <link rel="canonical" href="https://drpools.es" />
       </Helmet>
 
       <div className="min-h-screen bg-background">

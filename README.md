@@ -1,8 +1,8 @@
-# Agua Más Segura
+# DR Pools
 
 ## Información del Proyecto
 
-**Agua Más Segura** es un servicio profesional de mantenimiento de piscinas dedicado a devolverte tu tiempo libre y asegurar que tu piscina esté siempre perfecta.
+**DR Pools** es un servicio profesional de mantenimiento de piscinas dedicado a devolverte tu tiempo libre y asegurar que tu piscina esté siempre perfecta.
 
 ## Tecnologías Utilizadas
 
