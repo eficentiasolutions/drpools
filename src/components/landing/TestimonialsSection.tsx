@@ -3,28 +3,31 @@ import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { Star, Quote } from "lucide-react";
 import logoImage from "@/assets/drpools-logo.png";
+import javierImage from "@/assets/javier-mendez.png";
+import elenaImage from "@/assets/elena-torres.png";
+import robertoImage from "@/assets/roberto-sanchis.png";
 
 const testimonials = [
   {
     name: "Javier Méndez",
-    role: "Villa vacacional en Costa Adeje",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face",
+    role: "Villa vacacional en Costa Adeje por Los Realojos",
+    image: javierImage,
     quote:
       "Vivo en la península y siempre me preocupaba el estado de la piscina al llegar a la isla. Con DR Pools, llego y el agua está perfecta cada vez. El servicio de reportes con fotos tras cada visita me da una tranquilidad total.",
     rating: 5,
   },
   {
     name: "Elena Torres",
-    role: "Administradora de Fincas en Santa Cruz",
-    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=100&h=100&fit=crop&crop=face",
+    role: "Administradora de Fincas en Victoria",
+    image: elenaImage,
     quote:
       "Gestionamos varias comunidades en el norte y sur de la isla, y la exigencia es máxima. Desde que contamos con ellos, las incidencias han bajado a cero. Son proactivos y conocen bien las particularidades del clima de aquí.",
     rating: 5,
   },
   {
     name: "Roberto Sanchis",
-    role: "Chalet en Puerto de la Cruz",
-    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop&crop=face",
+    role: "Chalet en Tacoronte",
+    image: robertoImage,
     quote:
       "Nuestra piscina se puso verde por la calima dos días antes de una fiesta. Vinieron de urgencia, diagnosticaron el problema y en 24 horas el agua estaba cristalina. Literalmente nos salvaron el evento.",
     rating: 5,
@@ -55,7 +58,6 @@ const TestimonialsSection = () => {
               width="96"
               height="96"
               className="h-12 md:h-16 w-auto object-contain"
-              style={{ filter: "drop-shadow(1px 0 0 white) drop-shadow(-1px 0 0 white) drop-shadow(0 1px 0 white) drop-shadow(0 -1px 0 white)" }}
             />
           </div>
 
@@ -107,9 +109,7 @@ const TestimonialsSection = () => {
                   src={testimonial.image}
                   alt={testimonial.name}
                   loading="lazy"
-                  width="48"
-                  height="48"
-                  className="w-12 h-12 rounded-full object-cover"
+                  className="w-12 h-12 rounded-full object-cover shadow-md"
                 />
                 <div>
                   <div className="font-semibold text-foreground">

@@ -67,7 +67,6 @@ const Navbar = () => {
                 width="96"
                 height="96"
                 className="h-12 md:h-14 w-auto object-contain max-w-[140px] md:max-w-none"
-                style={{ filter: "drop-shadow(1px 0 0 white) drop-shadow(-1px 0 0 white) drop-shadow(0 1px 0 white) drop-shadow(0 -1px 0 white)" }}
               />
             </div>
           </a>

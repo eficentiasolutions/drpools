@@ -17,7 +17,6 @@ const Footer = () => {
                   width="96"
                   height="96"
                   className="h-10 md:h-14 w-auto object-contain"
-                  style={{ filter: "drop-shadow(1px 0 0 white) drop-shadow(-1px 0 0 white) drop-shadow(0 1px 0 white) drop-shadow(0 -1px 0 white)" }}
                 />
               </div>
             </div>

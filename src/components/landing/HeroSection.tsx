@@ -5,11 +5,13 @@ import heroPoolPremium from "@/assets/hero-pool-maintenance-v2.png";
 const HeroSection = () => {
   return (
     <section className="relative min-h-screen overflow-hidden bg-slate-50">
-      {/* Background Image */}
-      {/* Background Image - Nano Style Premium Pool */}
-      <div
-        className="absolute inset-0 bg-cover bg-bottom md:bg-center bg-no-repeat transition-transform duration-1000 scale-[1.35] origin-bottom md:scale-105 md:origin-center opacity-100"
-        style={{ backgroundImage: `url(${heroPoolPremium})` }}
+      {/* Background Image - Optimized for LCP */}
+      <img
+        src={heroPoolPremium}
+        alt="Piscina cristalina mantenida profesionalmente"
+        fetchPriority="high"
+        loading="eager"
+        className="absolute inset-0 w-full h-full object-cover object-bottom md:object-center transition-transform duration-1000 scale-[1.35] origin-bottom md:scale-105 md:origin-center opacity-100"
       />
 
       {/* Light/Blue Filter Effect - Fresh & Premium */}
@@ -26,13 +28,9 @@ const HeroSection = () => {
 
       <div className="relative container mx-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-center min-h-screen pt-20 pb-24 md:pt-32 md:pb-32">
         <div className="w-full max-w-4xl mx-auto text-center flex-1 flex flex-col justify-center">
-          {/* Main H1 - Cleaner Look - Dark Text */}
-          {/* Main H1 - Cleaner Look - Uniform Blue with White Stroke */}
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-slate-800 leading-[1.1] mb-6 md:mb-8 tracking-tight"
+          {/* Main H1 - CSS animation for visual appeal without blocking LCP */}
+          <h1
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-slate-800 leading-[1.1] mb-6 md:mb-8 tracking-tight animate-fade-in-up"
           >
             ¿Tu piscina es un{" "}
             <span className="font-extrabold text-secondary" style={{ WebkitTextStroke: '2px white', paintOrder: 'stroke fill' }}>
@@ -43,15 +41,10 @@ const HeroSection = () => {
               <span className="absolute bottom-1 left-0 w-full h-3 bg-brand-pain/40 -skew-x-6"></span>
               <span className="relative font-bold">carga?</span>
             </span>
-          </motion.h1>
+          </h1>
 
-          {/* Strong Promise */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="mb-8 md:mb-12"
-          >
+          {/* Strong Promise - CSS animation with delay */}
+          <div className="mb-8 md:mb-12 animate-fade-in-up" style={{ animationDelay: '0.1s', animationFillMode: 'both' }}>
             <div className="inline-block bg-white/90 backdrop-blur-md rounded-2xl px-5 py-4 md:px-8 md:py-6 border border-brand-primary/10 shadow-2xl hover:bg-white transition-colors duration-300">
               <p className="text-base sm:text-lg md:text-2xl font-bold text-brand-dark leading-tight">
                 🎁 <span className="opacity-90">OFERTA LIMITADA: </span>
@@ -63,15 +56,10 @@ const HeroSection = () => {
                 Solo este mes • Cupos limitados
               </p>
             </div>
-          </motion.div>
+          </div>
 
-          {/* CTA Button with Shadow Glow */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="mb-10 md:mb-16"
-          >
+          {/* CTA Button with Shadow Glow - CSS animation with delay */}
+          <div className="mb-10 md:mb-16 animate-fade-in-up" style={{ animationDelay: '0.2s', animationFillMode: 'both' }}>
             <a
               href="#contacto"
               onClick={(e) => {
@@ -88,15 +76,10 @@ const HeroSection = () => {
               <Droplets className="w-5 h-5 md:w-6 md:h-6" />
               Quiero mi Revisión GRATIS
             </a>
-          </motion.div>
+          </div>
 
-          {/* Trust indicators */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.5 }}
-            className="flex flex-wrap justify-center gap-x-6 gap-y-3 sm:gap-8 lg:gap-12"
-          >
+          {/* Trust indicators - CSS animation with delay */}
+          <div className="flex flex-wrap justify-center gap-x-6 gap-y-3 sm:gap-8 lg:gap-12 animate-fade-in" style={{ animationDelay: '0.3s', animationFillMode: 'both' }}>
             {[
               { icon: Shield, text: "Garantía 100%" },
               { icon: Clock, text: "Respuesta 24h" },
@@ -111,7 +94,7 @@ const HeroSection = () => {
                 <span className="text-xs sm:text-sm whitespace-nowrap">{item.text}</span>
               </div>
             ))}
-          </motion.div>
+          </div>
         </div>
 
         {/* Scroll indicator - Properly positioned */}
