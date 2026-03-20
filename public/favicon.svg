@@ -1,0 +1,33 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Define the clip path for the DR letters -->
+    <clipPath id="text-clip">
+       <!-- Letter D -->
+       <path d="M40 60 H180 C290 60 290 452 180 452 H40 V60 Z" />
+       
+       <!-- Letter R -->
+       <path d="M280 60 H400 C490 60 490 260 400 260 H350 L460 452 H350 L280 300 V452 H280 V60 Z" />
+    </clipPath>
+  </defs>
+
+  <!-- Background Rectangles (The Stripes) clipped by the letters -->
+  <g clip-path="url(#text-clip)">
+    <!-- Top Band (Cyan) -->
+    <rect x="0" y="0" width="512" height="180" fill="#22D3EE" />
+    
+    <!-- Middle Band (Royal Blue) -->
+    <rect x="0" y="180" width="512" height="152" fill="#2563EB" />
+    
+    <!-- Bottom Band (Deep Blue) -->
+    <rect x="0" y="332" width="512" height="180" fill="#172554" />
+    
+    <!-- The White Wave Separators -->
+    <!-- Wave 1 (Between Top and Mid) -->
+    <path d="M-20 180 C 100 140, 180 220, 256 180 S 412 140, 532 180 V 200 H -20 Z" fill="white" stroke="white" stroke-width="20" />
+     <!-- Thick white stroke to simulate the cut, or actual white fill shape if we want spacing -->
+    <path d="M-20 180 C 100 140, 180 220, 256 180 S 412 140, 532 180" stroke="white" stroke-width="35" fill="none" />
+
+    <!-- Wave 2 (Between Mid and Bot) -->
+    <path d="M-20 332 C 100 292, 180 372, 256 332 S 412 292, 532 332" stroke="white" stroke-width="35" fill="none" />
+  </g>
+</svg>
