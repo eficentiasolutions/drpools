@@ -81,6 +81,9 @@ export default function RootLayout({
   return (
     <html lang="es" className={poppins.variable}>
       <head>
+        {/* Google Site Verification */}
+        <meta name="google-site-verification" content="6lgqxFvYDRDgmnuZRyondxWpDQgsKChNejhZTMAUIjs" />
+
         {/* Resource hints for performance */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
