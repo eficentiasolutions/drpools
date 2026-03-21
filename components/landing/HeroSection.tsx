@@ -7,7 +7,8 @@ import Image from "next/image";
 const HeroSection = () => {
   return (
     <section className="relative min-h-screen overflow-hidden bg-slate-50">
-      {/* Background Image - Optimized for LCP */}
+      {/* Background Image - Optimized for LCP with placeholder */}
+      <div className="absolute inset-0 bg-gradient-to-br from-cyan-50 to-blue-50 animate-pulse-slow" />
       <Image
         src="/hero-pool-maintenance-v2.png"
         alt="Piscina cristalina mantenida profesionalmente"
@@ -15,6 +16,8 @@ const HeroSection = () => {
         priority
         className="object-cover object-bottom md:object-center"
         sizes="100vw"
+        placeholder="blur"
+        blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCwAB//2Q=="
       />
 
       {/* Light/Blue Filter Effect - Fresh & Premium */}

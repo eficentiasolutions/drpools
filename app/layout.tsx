@@ -3,7 +3,10 @@ import { Poppins } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as SonnerToaster } from "@/components/ui/sonner";
-import CookieBanner from "@/components/CookieBanner";
+import dynamic from "next/dynamic";
+
+// Defer CookieBanner loading to improve LCP
+const CookieBanner = dynamic(() => import("@/components/CookieBanner"));
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -76,6 +79,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es" className={poppins.variable}>
+      <head>
+        {/* Resource hints for performance */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+      </head>
       <body className="min-h-screen bg-background font-sans antialiased">
         {children}
         <Toaster />

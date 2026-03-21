@@ -1,16 +1,82 @@
 import type { Metadata } from "next";
+import dynamic from "next/dynamic";
 import Navbar from "@/components/landing/Navbar";
 import HeroSection from "@/components/landing/HeroSection";
 import PainSection from "@/components/landing/PainSection";
 import WhatsAppButton from "@/components/landing/WhatsAppButton";
 import AgitationBanner from "@/components/landing/AgitationBanner";
 import SolutionSection from "@/components/landing/SolutionSection";
-import DataVizSection from "@/components/landing/DataVizSection";
-import TestimonialsSection from "@/components/landing/TestimonialsSection";
-import PricingSection from "@/components/landing/PricingSection";
-import FAQSection from "@/components/landing/FAQSection";
-import ContactSection from "@/components/landing/ContactSection";
 import Footer from "@/components/landing/Footer";
+
+// Dynamic imports for heavy components to improve initial page load
+// DataVizSection uses chart.js which is a large library
+const DataVizSection = dynamic(
+  () => import("@/components/landing/DataVizSection"),
+  {
+    loading: () => (
+      <section className="py-20 bg-muted relative overflow-hidden">
+        <div className="container mx-auto px-4">
+          <div className="text-center">
+            <div className="animate-pulse inline-block h-8 w-48 bg-muted-foreground/20 rounded mb-4"></div>
+            <div className="animate-pulse inline-block h-12 w-64 bg-muted-foreground/10 rounded"></div>
+          </div>
+        </div>
+      </section>
+    )
+  }
+);
+
+const TestimonialsSection = dynamic(
+  () => import("@/components/landing/TestimonialsSection"),
+  {
+    loading: () => (
+      <section className="py-20 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="animate-pulse h-64 bg-muted/50 rounded-2xl"></div>
+        </div>
+      </section>
+    )
+  }
+);
+
+const PricingSection = dynamic(
+  () => import("@/components/landing/PricingSection"),
+  {
+    loading: () => (
+      <section className="py-20 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="animate-pulse h-96 bg-muted/50 rounded-2xl"></div>
+        </div>
+      </section>
+    )
+  }
+);
+
+const FAQSection = dynamic(
+  () => import("@/components/landing/FAQSection"),
+  {
+    loading: () => (
+      <section className="py-20 bg-muted">
+        <div className="container mx-auto px-4">
+          <div className="animate-pulse h-64 bg-muted/50 rounded-2xl"></div>
+        </div>
+      </section>
+    )
+  }
+);
+
+const ContactSection = dynamic(
+  () => import("@/components/landing/ContactSection"),
+  {
+    loading: () => (
+      <section className="py-20 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="animate-pulse h-96 bg-muted/50 rounded-2xl"></div>
+        </div>
+      </section>
+    )
+  }
+);
 
 export const metadata: Metadata = {
   title: "Mantenimiento de Piscinas Tenerife | Inspección GRATIS",

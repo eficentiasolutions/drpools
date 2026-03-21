@@ -312,4 +312,20 @@
       transform: translateX(0);
     }
   }
+
+  /* Slow pulse animation for image placeholders */
+  .animate-pulse-slow {
+    animation: pulseSlow 3s ease-in-out infinite;
+  }
+
+  @keyframes pulseSlow {
+    0%,
+    100% {
+      opacity: 1;
+    }
+
+    50% {
+      opacity: 0.8;
+    }
+  }
 }
