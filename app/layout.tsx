@@ -3,6 +3,7 @@ import { Poppins } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as SonnerToaster } from "@/components/ui/sonner";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import dynamic from "next/dynamic";
 
 // Defer CookieBanner loading to improve LCP
@@ -90,6 +91,7 @@ export default function RootLayout({
         <Toaster />
         <SonnerToaster />
         <CookieBanner />
+        <SpeedInsights />
       </body>
     </html>
   );
