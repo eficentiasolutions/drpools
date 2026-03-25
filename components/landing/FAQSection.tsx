@@ -6,6 +6,62 @@ import { useRef, useState } from "react";
 import { ChevronDown, HelpCircle } from "lucide-react";
 import Image from "next/image";
 
+// FAQPage Schema Markup para SEO
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "¿Qué incluye la revisión gratuita?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "La revisión gratuita incluye un análisis completo del balance químico de tu piscina (pH, cloro, alcalinidad, dureza), revisión visual del estado general, filtros y sistema de circulación, y un informe detallado con recomendaciones personalizadas. Sin compromiso de contratación.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "¿Con qué frecuencia necesita mantenimiento mi piscina?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "En Tenerife, debido a nuestro clima privilegiado, la piscina se disfruta todo el año. Recomendamos mantenimiento semanal para garantizar la calidad del agua constante, aunque nuestros planes se adaptan si tienes un uso más estacional.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "¿Qué pasa si no estoy satisfecho con el servicio?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Ofrecemos garantía de satisfacción total. Si en los primeros 30 días no estás completamente satisfecho, te devolvemos el 100% de tu dinero sin preguntas. Además, si detectas cualquier problema entre visitas, lo solucionamos sin coste adicional.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "¿Utilizan productos seguros para niños y mascotas?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Absolutamente. Todos nuestros productos están certificados y son seguros para uso en piscinas familiares. Además, ofrecemos opciones eco-friendly para familias con sensibilidades especiales.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "¿Trabajan en mi zona?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Actualmente damos servicio en toda la isla de Tenerife. Contáctanos para confirmar disponibilidad en tu ubicación específica.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "¿Puedo cambiar o cancelar mi plan en cualquier momento?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "El plan de mantenimiento premium tiene una permanencia de 12 meses, si en los primeros 30 días no estás conforme podrás cancelarlo sin haber pagado nada, ya que realizamos el servicio a mes vencido.",
+      },
+    },
+  ],
+};
+
 const faqs = [
   {
     question: "¿Qué incluye la revisión gratuita?",
@@ -45,7 +101,13 @@ const FAQSection = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section ref={ref} className="py-12 md:py-20 lg:py-28 bg-background">
+    <>
+      {/* FAQPage Schema Markup para SEO */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      <section ref={ref} className="py-12 md:py-20 lg:py-28 bg-background">
       <div className="container mx-auto px-4 relative">
         {/* Background Watermark */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-[0.05] pointer-events-none select-none z-0">
@@ -126,6 +188,7 @@ const FAQSection = () => {
         </motion.div>
       </div>
     </section>
+    </>
   );
 };
 

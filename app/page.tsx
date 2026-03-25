@@ -79,12 +79,13 @@ const ContactSection = dynamic(
 );
 
 export const metadata: Metadata = {
-  title: "Mantenimiento de Piscinas Tenerife | Inspección GRATIS",
-  description: "Servicio profesional de mantenimiento de piscinas en Tenerife. Recupera 80h/año de tiempo libre. Primera inspección de balance químico GRATIS. +500 familias satisfechas.",
+  title: "Mantenimiento de Piscinas en Tenerife | Inspección GRATIS",
+  description: "Servicio profesional de mantenimiento de piscinas en Tenerife. Recupera 80h/año de tiempo libre. Primera inspección de balance químico GRATIS. +500 familias satisfechas en toda la isla.",
   keywords: [
+    "mantenimiento de piscinas en Tenerife",
     "mantenimiento piscinas Tenerife",
     "limpieza piscinas Tenerife",
-    "servicio piscina",
+    "servicio piscina Tenerife",
     "balance químico piscina",
     "mantenimiento piscina precio",
   ],
@@ -92,7 +93,7 @@ export const metadata: Metadata = {
     canonical: "https://drpools.es",
   },
   openGraph: {
-    title: "DR Pools | Mantenimiento de Piscinas Tenerife",
+    title: "DR Pools | Mantenimiento de Piscinas en Tenerife",
     description: "Servicio profesional de mantenimiento de piscinas en Tenerife. Recupera 80h/año. Primera inspección GRATIS.",
     url: "https://drpools.es",
   },
