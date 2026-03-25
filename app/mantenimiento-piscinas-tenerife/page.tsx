@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { CheckCircle2, Droplets, Shield, Clock, Users, Sparkles } from "lucide-react";
 import Navbar from "@/components/landing/Navbar";
 import Footer from "@/components/landing/Footer";
@@ -84,16 +85,48 @@ export default function MantenimientoPiscinasTenerife() {
         <WhatsAppButton />
 
         <main>
-          {/* Hero Section */}
-          <section className="relative py-20 md:py-28 bg-gradient-to-br from-secondary/10 via-background to-accent/5">
-            <div className="container mx-auto px-4">
-              <div className="max-w-4xl mx-auto text-center">
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-                  Mantenimiento de Piscinas en <span className="gradient-text">Tenerife</span>
+          {/* Hero Section con imagen de fondo */}
+          <section className="relative min-h-[80vh] md:min-h-[70vh] overflow-hidden">
+            {/* Background Image */}
+            <div className="absolute inset-0 bg-gradient-to-br from-cyan-50 to-blue-50" />
+            <Image
+              src="/hero-pool-maintenance-v2.png"
+              alt="Piscina cristalina mantenida profesionalmente en Tenerife"
+              fill
+              priority
+              className="object-cover object-bottom md:object-center"
+              sizes="100vw"
+            />
+
+            {/* Light/Blue Filter Effect */}
+            <div className="absolute inset-0 bg-cyan-50/30 mix-blend-overlay" />
+            <div className="absolute inset-0 bg-gradient-to-tr from-white/60 via-transparent to-white/40" />
+            <div className="absolute inset-0 bg-gradient-to-t from-white via-white/60 to-transparent" />
+
+            {/* Decorative elements */}
+            <div className="absolute top-20 left-10 w-32 h-32 bg-brand-teal/20 rounded-full blur-3xl mix-blend-multiply" />
+            <div className="absolute bottom-20 right-10 w-48 h-48 bg-brand-primary/10 rounded-full blur-3xl mix-blend-multiply" />
+
+            <div className="relative container mx-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-center min-h-[80vh] md:min-h-[70vh] py-20">
+              <div className="w-full max-w-4xl mx-auto text-center">
+                <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-slate-800 leading-[1.1] mb-6 md:mb-8 tracking-tight">
+                  Mantenimiento de Piscinas en{" "}
+                  <span className="font-extrabold text-secondary">
+                    Tenerife
+                  </span>
                 </h1>
-                <p className="text-lg md:text-xl text-muted-foreground mb-8">
-                  Servicio profesional de mantenimiento de piscinas en Tenerife. Recupera 80 horas al año y disfruta de una piscina cristalina sin preocupaciones.
-                </p>
+
+                <div className="mb-8 md:mb-12">
+                  <div className="inline-block bg-white/90 backdrop-blur-md rounded-2xl px-5 py-4 md:px-8 md:py-6 border border-brand-primary/10 shadow-2xl">
+                    <p className="text-base sm:text-lg md:text-xl font-bold text-brand-dark leading-tight">
+                      Servicio profesional de mantenimiento de piscinas en Tenerife.
+                    </p>
+                    <p className="text-brand-primary/80 text-sm mt-2 font-medium">
+                      Recupera 80 horas al año y disfruta de una piscina cristalina sin preocupaciones.
+                    </p>
+                  </div>
+                </div>
+
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <Link
                     href="#contacto"
@@ -104,7 +137,7 @@ export default function MantenimientoPiscinasTenerife() {
                   </Link>
                   <a
                     href="tel:+34624187418"
-                    className="inline-flex items-center justify-center rounded-xl border-2 border-secondary px-8 py-4 font-semibold text-secondary hover:bg-secondary/10 transition-colors"
+                    className="inline-flex items-center justify-center rounded-xl border-2 border-white bg-white/90 px-8 py-4 font-semibold text-secondary hover:bg-white transition-colors"
                   >
                     📞 Llamar Ahora
                   </a>
