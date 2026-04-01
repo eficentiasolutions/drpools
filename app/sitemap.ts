@@ -11,16 +11,23 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'weekly',
       priority: 1,
     },
+    // Página overview de servicios
+    {
+      url: `${baseUrl}/servicios`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.95,
+    },
     // Página principal de mantenimiento - Palabra clave principal
     {
-      url: `${baseUrl}/mantenimiento-piscinas-tenerife`,
+      url: `${baseUrl}/servicios/mantenimiento-piscinas-tenerife`,
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 0.9,
     },
     // Página de limpieza - Segunda palabra clave importante
     {
-      url: `${baseUrl}/limpieza-piscinas-tenerife`,
+      url: `${baseUrl}/servicios/limpieza-piscinas-tenerife`,
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 0.85,

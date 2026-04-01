@@ -1,6 +1,22 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  // Redirects from old URLs to new service URLs
+  async redirects() {
+    return [
+      {
+        source: '/mantenimiento-piscinas-tenerife',
+        destination: '/servicios/mantenimiento-piscinas-tenerife',
+        permanent: true,
+      },
+      {
+        source: '/limpieza-piscinas-tenerife',
+        destination: '/servicios/limpieza-piscinas-tenerife',
+        permanent: true,
+      },
+    ];
+  },
+
   // Image optimization for better performance
   images: {
     remotePatterns: [

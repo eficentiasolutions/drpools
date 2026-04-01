@@ -16,7 +16,7 @@ const services = [
       "Método de limpieza integral que devuelve el brillo cristalino a tu piscina durante todo el año.",
     benefit: "Piscina lista para disfrutar",
     color: "from-blue-500 to-cyan-500",
-    link: "/limpieza-piscinas-tenerife",
+    link: "/servicios/limpieza-piscinas-tenerife",
   },
   {
     icon: FlaskConical,
@@ -26,7 +26,7 @@ const services = [
       "Análisis profesional y dosificación exacta para eliminar patógenos como virus y bacterias sin poner en riesgo la salud.",
     benefit: "Sin riesgos para tu familia",
     color: "from-teal-500 to-emerald-500",
-    link: "/mantenimiento-piscinas-tenerife",
+    link: "/servicios/mantenimiento-piscinas-tenerife",
   },
   {
     icon: Wrench,
@@ -36,7 +36,7 @@ const services = [
       "Detectamos y solucionamos problemas antes de que se conviertan en costosas reparaciones.",
     benefit: "Evita reparaciones de +2.000€",
     color: "from-indigo-500 to-purple-500",
-    link: "/mantenimiento-piscinas-tenerife",
+    link: "/servicios/mantenimiento-piscinas-tenerife",
   },
 ];
 

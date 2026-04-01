@@ -2,16 +2,12 @@
 
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Droplets, Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
 
-const serviceLinks = [
-  { label: "Mantenimiento de Piscinas", href: "/mantenimiento-piscinas-tenerife" },
-  { label: "Limpieza de Piscinas", href: "/limpieza-piscinas-tenerife" },
-];
-
 const navLinks = [
+  { label: "Servicios", href: "/servicios", isPage: true },
   { label: "Resultados", href: "#resultados" },
   { label: "Precios", href: "#precios" },
   { label: "FAQ", href: "#faq" },
@@ -20,7 +16,6 @@ const navLinks = [
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isServicesOpen, setIsServicesOpen] = useState(false);
   const pathname = usePathname();
   const isHome = pathname === "/";
 
@@ -33,8 +28,9 @@ const Navbar = () => {
   }, []);
 
   // Helper to get the correct Href based on current route
-  const getHref = (hash: string) => {
-    return isHome ? hash : `/${hash}`;
+  const getHref = (link: typeof navLinks[number]) => {
+    if (link.isPage) return link.href;
+    return isHome ? link.href : `/${link.href}`;
   };
 
   const handleCtaClick = (e: React.MouseEvent) => {
@@ -50,6 +46,12 @@ const Navbar = () => {
     } else {
       e.preventDefault();
       window.location.href = "/?plan=Revisión%20Gratuita#formulario-contacto";
+    }
+  };
+
+  const handleNavClick = (link: typeof navLinks[number]) => {
+    if (link.isPage) {
+      setIsMobileMenuOpen(false);
     }
   };
 
@@ -81,43 +83,10 @@ const Navbar = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
-            {/* Servicios Dropdown */}
-            <div
-              className="relative"
-              onMouseEnter={() => setIsServicesOpen(true)}
-              onMouseLeave={() => setIsServicesOpen(false)}
-            >
-              <button
-                className={`font-medium transition-colors hover:text-brand-primary flex items-center gap-1 ${isScrolled || isMobileMenuOpen ? "text-foreground" : "text-brand-dark/90"}`}
-              >
-                Servicios
-                <ChevronDown className={`w-4 h-4 transition-transform ${isServicesOpen ? "rotate-180" : ""}`} />
-              </button>
-              {isServicesOpen && (
-                <div className="absolute top-full left-0 mt-2 w-56 bg-white rounded-xl shadow-lg border border-gray-100 py-2 z-50">
-                  {serviceLinks.map((link) => (
-                    <a
-                      key={link.href}
-                      href={link.href}
-                      className="block px-4 py-2.5 text-sm font-medium text-foreground hover:bg-brand-primary/10 hover:text-brand-primary transition-colors"
-                    >
-                      {link.label}
-                    </a>
-                  ))}
-                  <a
-                    href={isHome ? "#servicios" : "/#servicios"}
-                    className="block px-4 py-2.5 text-sm font-medium text-muted-foreground hover:bg-brand-primary/10 hover:text-brand-primary transition-colors border-t border-gray-100 mt-1 pt-2"
-                  >
-                    Ver todos los servicios
-                  </a>
-                </div>
-              )}
-            </div>
-
             {navLinks.map((link) => (
               <a
                 key={link.label}
-                href={getHref(link.href)}
+                href={getHref(link)}
                 className={`font-medium transition-colors hover:text-brand-primary ${isScrolled || isMobileMenuOpen ? "text-foreground" : "text-brand-dark/90"
                   }`}
               >
@@ -125,7 +94,7 @@ const Navbar = () => {
               </a>
             ))}
             <a
-              href={getHref("#contacto")}
+              href={getHref({ href: "#contacto", label: "", isPage: false })}
               onClick={handleCtaClick}
               className={`px-6 py-2.5 rounded-xl font-bold transition-all ${isScrolled || isMobileMenuOpen
                 ? "bg-secondary text-white hover:bg-secondary/90"
@@ -159,49 +128,18 @@ const Navbar = () => {
             className="md:hidden bg-white rounded-2xl shadow-lg p-6 mb-4"
           >
             <div className="flex flex-col gap-4">
-              {/* Servicios */}
-              <div>
-                <button
-                  onClick={() => setIsServicesOpen(!isServicesOpen)}
-                  className="text-foreground font-medium py-2 hover:text-secondary transition-colors flex items-center gap-1 w-full text-left"
-                >
-                  Servicios
-                  <ChevronDown className={`w-4 h-4 transition-transform ml-auto ${isServicesOpen ? "rotate-180" : ""}`} />
-                </button>
-                {isServicesOpen && (
-                  <div className="pl-4 mt-1 flex flex-col gap-1">
-                    {serviceLinks.map((link) => (
-                      <a
-                        key={link.href}
-                        href={link.href}
-                        onClick={() => setIsMobileMenuOpen(false)}
-                        className="text-muted-foreground font-medium py-1.5 text-sm hover:text-secondary transition-colors"
-                      >
-                        {link.label}
-                      </a>
-                    ))}
-                    <a
-                      href={isHome ? "#servicios" : "/#servicios"}
-                      onClick={() => setIsMobileMenuOpen(false)}
-                      className="text-muted-foreground font-medium py-1.5 text-sm hover:text-secondary transition-colors"
-                    >
-                      Ver todos los servicios
-                    </a>
-                  </div>
-                )}
-              </div>
               {navLinks.map((link) => (
                 <a
                   key={link.label}
-                  href={getHref(link.href)}
-                  onClick={() => setIsMobileMenuOpen(false)}
+                  href={getHref(link)}
+                  onClick={() => handleNavClick(link)}
                   className="text-foreground font-medium py-2 hover:text-secondary transition-colors"
                 >
                   {link.label}
                 </a>
               ))}
               <a
-                href={getHref("#contacto")}
+                href={isHome ? "#contacto" : "/#contacto"}
                 onClick={handleCtaClick}
                 className="btn-glow text-center mt-2"
               >

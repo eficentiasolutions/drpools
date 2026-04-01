@@ -33,7 +33,7 @@ export default function NotFound() {
             Volver al Inicio
           </Link>
           <Link
-            href="/mantenimiento-piscinas-tenerife"
+            href="/servicios/mantenimiento-piscinas-tenerife"
             className="inline-flex items-center justify-center rounded-xl border-2 border-secondary px-8 py-4 font-semibold text-secondary hover:bg-secondary/10 transition-colors"
           >
             Ver Servicios

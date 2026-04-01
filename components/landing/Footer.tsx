@@ -58,12 +58,17 @@ const Footer = () => {
             <h4 className="font-bold mb-3 md:mb-4 text-sm md:text-base">Servicios</h4>
             <ul className="space-y-2 md:space-y-3 text-white/70 text-xs md:text-sm">
               <li>
-                <a href="/mantenimiento-piscinas-tenerife" className="hover:text-secondary transition-colors">
+                <a href="/servicios" className="hover:text-secondary transition-colors">
+                  Todos los Servicios
+                </a>
+              </li>
+              <li>
+                <a href="/servicios/mantenimiento-piscinas-tenerife" className="hover:text-secondary transition-colors">
                   Mantenimiento de Piscinas
                 </a>
               </li>
               <li>
-                <a href="/limpieza-piscinas-tenerife" className="hover:text-secondary transition-colors">
+                <a href="/servicios/limpieza-piscinas-tenerife" className="hover:text-secondary transition-colors">
                   Limpieza de Piscinas
                 </a>
               </li>

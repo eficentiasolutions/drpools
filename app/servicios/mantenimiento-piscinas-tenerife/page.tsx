@@ -19,12 +19,12 @@ export const metadata: Metadata = {
     "empresa piscinas Tenerife",
   ],
   alternates: {
-    canonical: "https://www.drpools.es/mantenimiento-piscinas-tenerife",
+    canonical: "https://www.drpools.es/servicios/mantenimiento-piscinas-tenerife",
   },
   openGraph: {
     title: "Mantenimiento de Piscinas en Tenerife | DR Pools",
     description: "Servicio profesional de mantenimiento de piscinas en Tenerife. Recupera tu tiempo libre. +500 clientes satisfechos.",
-    url: "https://www.drpools.es/mantenimiento-piscinas-tenerife",
+    url: "https://www.drpools.es/servicios/mantenimiento-piscinas-tenerife",
     images: [
       {
         url: "/og-image.jpg",
@@ -94,8 +94,14 @@ const breadcrumbSchema = {
     {
       "@type": "ListItem",
       position: 2,
+      name: "Servicios",
+      item: "https://www.drpools.es/servicios",
+    },
+    {
+      "@type": "ListItem",
+      position: 3,
       name: "Mantenimiento de Piscinas en Tenerife",
-      item: "https://www.drpools.es/mantenimiento-piscinas-tenerife",
+      item: "https://www.drpools.es/servicios/mantenimiento-piscinas-tenerife",
     },
   ],
 };
