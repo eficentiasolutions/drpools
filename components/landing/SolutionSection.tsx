@@ -3,8 +3,9 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { Sparkles, FlaskConical, Wrench, Clock, Shield, Leaf } from "lucide-react";
+import { Sparkles, FlaskConical, Wrench, Clock, Shield, Leaf, ArrowRight } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 const services = [
   {
@@ -15,6 +16,7 @@ const services = [
       "Método de limpieza integral que devuelve el brillo cristalino a tu piscina durante todo el año.",
     benefit: "Piscina lista para disfrutar",
     color: "from-blue-500 to-cyan-500",
+    link: "/limpieza-piscinas-tenerife",
   },
   {
     icon: FlaskConical,
@@ -24,6 +26,7 @@ const services = [
       "Análisis profesional y dosificación exacta para eliminar patógenos como virus y bacterias sin poner en riesgo la salud.",
     benefit: "Sin riesgos para tu familia",
     color: "from-teal-500 to-emerald-500",
+    link: "/mantenimiento-piscinas-tenerife",
   },
   {
     icon: Wrench,
@@ -33,6 +36,7 @@ const services = [
       "Detectamos y solucionamos problemas antes de que se conviertan en costosas reparaciones.",
     benefit: "Evita reparaciones de +2.000€",
     color: "from-indigo-500 to-purple-500",
+    link: "/mantenimiento-piscinas-tenerife",
   },
 ];
 
@@ -98,30 +102,32 @@ const SolutionSection = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="service-card group"
             >
-              <div
-                className={`w-12 h-12 md:w-16 md:h-16 rounded-xl md:rounded-2xl bg-gradient-to-br ${service.color} flex items-center justify-center mb-4 md:mb-6 group-hover:scale-110 transition-transform duration-300`}
-              >
-                <service.icon className="w-6 h-6 md:w-8 md:h-8 text-white" />
-              </div>
+              <Link href={service.link} className="service-card group block h-full">
+                <div
+                  className={`w-12 h-12 md:w-16 md:h-16 rounded-xl md:rounded-2xl bg-gradient-to-br ${service.color} flex items-center justify-center mb-4 md:mb-6 group-hover:scale-110 transition-transform duration-300`}
+                >
+                  <service.icon className="w-6 h-6 md:w-8 md:h-8 text-white" />
+                </div>
 
-              <span className="text-secondary text-xs md:text-sm font-medium">
-                {service.subtitle}
-              </span>
-              <h3 className="text-xl md:text-2xl font-bold text-foreground mt-1 mb-2 md:mb-3">
-                {service.title}
-              </h3>
-              <p className="text-muted-foreground mb-4 leading-relaxed text-sm md:text-base">
-                {service.description}
-              </p>
-
-              <div className="pt-3 md:pt-4 border-t border-border">
-                <span className="text-xs md:text-sm font-semibold text-secondary flex items-center gap-2">
-                  <Shield className="w-4 h-4" />
-                  {service.benefit}
+                <span className="text-secondary text-xs md:text-sm font-medium">
+                  {service.subtitle}
                 </span>
-              </div>
+                <h3 className="text-xl md:text-2xl font-bold text-foreground mt-1 mb-2 md:mb-3">
+                  {service.title}
+                </h3>
+                <p className="text-muted-foreground mb-4 leading-relaxed text-sm md:text-base">
+                  {service.description}
+                </p>
+
+                <div className="pt-3 md:pt-4 border-t border-border flex items-center justify-between">
+                  <span className="text-xs md:text-sm font-semibold text-secondary flex items-center gap-2">
+                    <Shield className="w-4 h-4" />
+                    {service.benefit}
+                  </span>
+                  <ArrowRight className="w-4 h-4 text-muted-foreground group-hover:text-secondary group-hover:translate-x-1 transition-all" />
+                </div>
+              </Link>
             </motion.div>
           ))}
         </div>

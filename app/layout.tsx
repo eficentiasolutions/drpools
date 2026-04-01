@@ -17,7 +17,7 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://drpools.es"),
+  metadataBase: new URL("https://www.drpools.es"),
   title: {
     default: "DR Pools | Mantenimiento Profesional de Piscinas",
     template: "%s | DR Pools",
@@ -68,14 +68,36 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: "/icon.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon.png", sizes: "32x32", type: "image/png" },
       { url: "/favicon.svg", type: "image/svg+xml" },
     ],
     apple: [
-      { url: "/apple-icon.png", sizes: "180x180", type: "image/png" }
+      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }
     ],
   },
   manifest: "/site.webmanifest",
+};
+
+// Organization Schema Markup
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "DR Pools",
+  url: "https://www.drpools.es",
+  logo: "https://www.drpools.es/drpools-logo.png",
+  telephone: "+34624187418",
+  email: "info@drpools.es",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Tenerife",
+    addressCountry: "ES",
+  },
+  sameAs: [
+    "https://www.facebook.com/share/1CMksZtzTW/",
+    "https://www.instagram.com/drpools.es",
+    "https://www.tiktok.com/@drpoolss",
+    "https://www.google.com/maps/search/?api=1&query=DRpools&query_place_id=ChIJ5y8Xg1PIRGMRXtzZcEEx0mA",
+  ],
 };
 
 export default function RootLayout({
@@ -93,6 +115,10 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+        />
       </head>
       <body className="min-h-screen bg-background font-sans antialiased">
         {children}

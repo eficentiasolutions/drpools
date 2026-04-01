@@ -114,7 +114,7 @@ export function generateReviewSchema(config: GoogleReviewsConfig) {
       image: "https://drpools.es/og-image.jpg",
       telephone: "+34624187418",
       email: "info@drpools.es",
-      url: "https://drpools.es",
+      url: "https://www.drpools.es",
       sameAs: config.businessUrl, // Enlace a Google Business Profile
       address: {
         "@type": "PostalAddress",

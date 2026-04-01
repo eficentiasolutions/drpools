@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://drpools.es'
+  const baseUrl = 'https://www.drpools.es'
 
   return [
     // Homepage - Página principal
@@ -24,13 +24,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 0.85,
-    },
-    // Página de gracias - No indexable para SEO
-    {
-      url: `${baseUrl}/gracias`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.3,
     },
     // Páginas legales - Prioridad baja
     {

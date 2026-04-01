@@ -19,12 +19,20 @@ export const metadata: Metadata = {
     "mantenimiento piscinas Tenerife",
   ],
   alternates: {
-    canonical: "https://drpools.es/limpieza-piscinas-tenerife",
+    canonical: "https://www.drpools.es/limpieza-piscinas-tenerife",
   },
   openGraph: {
     title: "Limpieza de Piscinas en Tenerife | DR Pools",
     description: "Servicio profesional de limpieza de piscinas en Tenerife. Resultado impecable garantizado.",
-    url: "https://drpools.es/limpieza-piscinas-tenerife",
+    url: "https://www.drpools.es/limpieza-piscinas-tenerife",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Limpieza de Piscinas en Tenerife | DR Pools",
+      },
+    ],
   },
 };
 
@@ -50,12 +58,35 @@ const serviceSchema = {
   },
 };
 
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Inicio",
+      item: "https://www.drpools.es",
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "Limpieza de Piscinas en Tenerife",
+      item: "https://www.drpools.es/limpieza-piscinas-tenerife",
+    },
+  ],
+};
+
 export default function LimpiezaPiscinasTenerife() {
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
       <div className="min-h-screen bg-background">
         <Navbar />
