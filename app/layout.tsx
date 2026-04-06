@@ -47,7 +47,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "es_ES",
-    url: "https://drpools.es",
+    url: "https://www.drpools.es",
     title: "DR Pools | Mantenimiento Profesional de Piscinas",
     description: "¿Tu piscina es un placer o una carga? Recupera 80h/año con nuestro servicio profesional. Inspección GRATIS.",
     siteName: "DR Pools",
