@@ -79,7 +79,7 @@ const ContactSection = dynamic(
 );
 
 export const metadata: Metadata = {
-  title: "DR Pools | Servicio Profesional de Piscinas en Tenerife",
+  title: "DR Pools | Mantenimiento Profesional de Piscinas en Tenerife",
   description: "Mantenimiento, limpieza y reparación de piscinas en Tenerife. Recupera 80h/año de tiempo libre. Primera inspección de balance químico GRATIS. +500 familias satisfechas en toda la isla.",
   keywords: [
     "mantenimiento de piscinas en Tenerife",
