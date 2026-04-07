@@ -59,7 +59,7 @@ const HeroSection = () => {
                 </span>
               </p>
               <p className="text-brand-primary/80 text-xs sm:text-sm mt-2 font-medium tracking-wide uppercase">
-                Solo este mes • Cupos limitados
+                Mantenimiento de piscinas en Tenerife • Solo este mes
               </p>
             </div>
           </div>
@@ -90,7 +90,7 @@ const HeroSection = () => {
               { icon: Shield, text: "Garantía 100%" },
               { icon: Clock, text: "Respuesta 24h" },
               { icon: Droplets, text: "Químicos Certif." },
-              { icon: UserCheck, text: "Técnicos Cualif." },
+              { icon: UserCheck, text: "+500 Clientes Tenerife" },
             ].map((item, index) => (
               <div
                 key={index}

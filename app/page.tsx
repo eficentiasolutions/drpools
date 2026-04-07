@@ -95,7 +95,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "DR Pools | Mantenimiento de Piscinas en Tenerife",
     description: "Servicio profesional de mantenimiento de piscinas en Tenerife. Recupera 80h/año. Primera inspección GRATIS.",
-    url: "https://drpools.es",
+    url: "https://www.drpools.es",
   },
 };
 
@@ -104,7 +104,7 @@ const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   name: "DR Pools",
-  image: "https://drpools.es/og-image.jpg",
+  image: "https://www.drpools.es/og-image.jpg",
   "@id": "https://www.drpools.es",
   url: "https://www.drpools.es",
   telephone: "+34624187418",

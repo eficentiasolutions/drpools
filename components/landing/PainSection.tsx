@@ -66,7 +66,7 @@ const PainSection = () => {
             <span className="text-destructive">Te Quitan el Sueño</span>
           </h2>
           <p className="text-muted-foreground text-sm md:text-lg max-w-2xl mx-auto px-2">
-            Si alguno de estos problemas te resulta familiar, no estás solo.
+            Si alguno de estos problemas te resulta familiar, no estás solo. Como especialistas en mantenimiento de piscinas en Tenerife, lo vemos todos los días.
           </p>
         </motion.div>
 

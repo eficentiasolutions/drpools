@@ -89,8 +89,8 @@ const SolutionSection = () => {
             <span className="gradient-text">Oasis Sin Esfuerzo</span>
           </h2>
           <p className="text-muted-foreground text-sm md:text-lg max-w-2xl mx-auto px-2">
-            Nuestro equipo de expertos se encarga de todo para que tú solo
-            tengas que disfrutar.
+            Nuestro equipo de expertos en mantenimiento de piscinas en Tenerife
+            se encarga de todo para que tú solo tengas que disfrutar.
           </p>
         </motion.div>
 
