@@ -62,10 +62,10 @@ const serviceSchema = {
     "@type": "GeoCircle",
     geoMidpoint: {
       "@type": "GeoCoordinates",
-      latitude: 28.2916,
-      longitude: -16.6291,
+      latitude: 28.416,
+      longitude: -16.5425,
     },
-    geoRadius: "50000",
+    geoRadius: "20000",
   },
   hasOfferCatalog: {
     "@type": "OfferCatalog",
@@ -157,7 +157,7 @@ const faqSchema = {
       name: "¿Qué zonas de Tenerife cubrís?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "DR Pools ofrece servicio de mantenimiento de piscinas en toda la isla de Tenerife. Cubrimos Santa Cruz de Tenerife, San Cristóbal de La Laguna, Adeje, Arona, Costa Adeje, Granadilla de Abona, Puerto de la Cruz, La Orotava, Los Realejos, Candelaria, Güímar, San Miguel de Abona, Guía de Isora, Santiago del Teide, Icod de los Vinos, Tacoronte, El Sauzal, La Victoria, La Matanza y muchas más. Si tu municipio no aparece en la lista, consúltanos porque probablemente también lleguemos.",
+        text: "DR Pools ofrece servicio de mantenimiento de piscinas en el norte de Tenerife. Cubrimos Puerto de la Cruz, La Orotava, Los Realejos, San Cristóbal de La Laguna, Tacoronte, El Sauzal, Santa Úrsula, La Victoria de Acentejo, La Matanza de Acentejo, San Juan de la Rambla, La Esperanza, Icod de los Vinos y zonas estratégicas como La Paz, Martiánez, El Mayorazgo, La Perdoma, Aguamansa, La Longuera, Cruz Santa, Mesa del Mar, Agua García y San Marcos. Si tu zona no aparece en la lista, consúltanos porque probablemente también lleguemos.",
       },
     },
     {
@@ -332,9 +332,9 @@ export default function MantenimientoPiscinasTenerife() {
                   <div className="w-14 h-14 rounded-full bg-secondary/10 flex items-center justify-center mb-4">
                     <Droplets className="w-7 h-7 text-secondary" />
                   </div>
-                  <h3 className="text-xl font-bold mb-3">Cobertura en Toda Tenerife</h3>
+                  <h3 className="text-xl font-bold mb-3">Cobertura en el Norte de Tenerife</h3>
                   <p className="text-muted-foreground">
-                    Damos servicio en toda la isla de Tenerife. Desde Santa Cruz hasta Los Cristianos, desde el norte hasta el sur.
+                    Damos servicio en el norte de Tenerife. Puerto de la Cruz, La Orotava, Los Realejos, La Laguna, Tacoronte y más.
                   </p>
                 </div>
               </div>
@@ -560,7 +560,7 @@ export default function MantenimientoPiscinasTenerife() {
                   },
                   {
                     q: "¿Qué zonas de Tenerife cubrís?",
-                    a: "DR Pools ofrece servicio de mantenimiento de piscinas en toda la isla de Tenerife. Cubrimos Santa Cruz, La Laguna, Adeje, Arona, Costa Adeje, Puerto de la Cruz, La Orotava, Los Realejos, Guía de Isora, Santiago del Teide, Granadilla, Icod de los Vinos, Tacoronte y muchas más localidades. Si tu municipio no aparece, consúltanos.",
+                    a: "DR Pools ofrece servicio de mantenimiento de piscinas en el norte de Tenerife. Cubrimos Puerto de la Cruz, La Orotava, Los Realejos, San Cristóbal de La Laguna, Tacoronte, El Sauzal, Santa Úrsula, La Victoria de Acentejo, La Matanza de Acentejo, San Juan de la Rambla, La Esperanza, Icod de los Vinos y muchas más localidades del norte. Si tu zona no aparece, consúltanos.",
                   },
                   {
                     q: "¿Hacéis mantenimiento de piscinas comunitarias?",
@@ -594,45 +594,37 @@ export default function MantenimientoPiscinasTenerife() {
             <div className="container mx-auto px-4">
               <div className="text-center mb-12">
                 <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                  Mantenimiento de piscinas en <span className="gradient-text">toda Tenerife</span>
+                  Mantenimiento de piscinas en el <span className="gradient-text">Norte de Tenerife</span>
                 </h2>
                 <p className="text-muted-foreground text-lg">
-                  Ofrecemos servicio profesional de mantenimiento de piscinas en todos los municipios de la isla
+                  Especialistas en mantenimiento de piscinas en los municipios y zonas del norte de Tenerife
                 </p>
               </div>
 
               <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-6">
                 {[
-                  "Santa Cruz de Tenerife",
-                  "San Cristóbal de La Laguna",
-                  "Adeje",
-                  "Arona",
-                  "Costa Adeje",
-                  "Granadilla de Abona",
                   "Puerto de la Cruz",
                   "La Orotava",
                   "Los Realejos",
-                  "Candelaria",
-                  "Güímar",
-                  "San Miguel de Abona",
-                  "Arico",
-                  "Fasnia",
-                  "Arafo",
-                  "Guía de Isora",
-                  "Santiago del Teide",
-                  "Icod de los Vinos",
+                  "San Cristóbal de La Laguna",
                   "Tacoronte",
                   "El Sauzal",
+                  "Santa Úrsula",
                   "La Victoria de Acentejo",
                   "La Matanza de Acentejo",
-                  "Los Silos",
-                  "Buenavista del Norte",
-                  "Garachico",
-                  "La Guancha",
                   "San Juan de la Rambla",
-                  "El Tanque",
-                  "Tegueste",
-                  "Anaga",
+                  "La Esperanza",
+                  "Icod de los Vinos",
+                  "La Paz",
+                  "Martiánez",
+                  "El Mayorazgo",
+                  "La Perdoma",
+                  "Aguamansa",
+                  "La Longuera",
+                  "Cruz Santa",
+                  "Mesa del Mar",
+                  "Agua García",
+                  "San Marcos",
                 ].map((zona) => (
                   <div
                     key={zona}
@@ -643,6 +635,10 @@ export default function MantenimientoPiscinasTenerife() {
                   </div>
                 ))}
               </div>
+
+              <p className="text-center text-muted-foreground text-sm mt-8 max-w-2xl mx-auto">
+                ¿No ves tu zona? Trabajamos en todo el norte de Tenerife. <a href="#contacto" className="text-secondary font-semibold hover:underline">Consúltanos</a> para confirmar disponibilidad en tu ubicación.
+              </p>
             </div>
           </section>
 

@@ -138,7 +138,7 @@ const ContactSection = () => {
                 </div>
                 <div>
                   <h4 className="font-semibold text-foreground text-sm md:text-base">Zonas</h4>
-                  <p className="text-muted-foreground text-xs md:text-base">Tenerife</p>
+                  <p className="text-muted-foreground text-xs md:text-base">Norte de Tenerife</p>
                 </div>
               </div>
 

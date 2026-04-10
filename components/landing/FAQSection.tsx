@@ -48,7 +48,7 @@ const faqSchema = {
       name: "¿Trabajan en mi zona?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Actualmente damos servicio en toda la isla de Tenerife. Contáctanos para confirmar disponibilidad en tu ubicación específica.",
+        text: "DR Pools ofrece servicio de mantenimiento y limpieza de piscinas en el norte de Tenerife. Cubrimos Puerto de la Cruz, La Orotava, Los Realejos, San Cristóbal de La Laguna, Tacoronte, El Sauzal, Santa Úrsula, La Victoria de Acentejo, La Matanza de Acentejo, San Juan de la Rambla, La Esperanza e Icod de los Vinos, además de múltiples zonas estratégicas. Contáctanos para confirmar disponibilidad en tu ubicación específica.",
       },
     },
     {
@@ -86,7 +86,7 @@ const faqs = [
   {
     question: "¿Trabajan en mi zona?",
     answer:
-      "Actualmente damos servicio en toda la isla de Tenerife. Contáctanos para confirmar disponibilidad en tu ubicación específica.",
+      "DR Pools ofrece servicio en el norte de Tenerife. Cubrimos Puerto de la Cruz, La Orotava, Los Realejos, La Laguna, Tacoronte, El Sauzal, Santa Úrsula, La Victoria, La Matanza, San Juan de la Rambla, La Esperanza e Icod de los Vinos, además de múltiples zonas estratégicas. Contáctanos para confirmar disponibilidad en tu ubicación.",
   },
   {
     question: "¿Puedo cambiar o cancelar mi plan en cualquier momento?",

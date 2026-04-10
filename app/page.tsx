@@ -80,7 +80,7 @@ const ContactSection = dynamic(
 
 export const metadata: Metadata = {
   title: "DR Pools | Mantenimiento Profesional de Piscinas en Tenerife",
-  description: "Mantenimiento, limpieza y reparación de piscinas en Tenerife. Recupera 80h/año de tiempo libre. Primera inspección de balance químico GRATIS. +500 familias satisfechas en toda la isla.",
+  description: "Mantenimiento, limpieza y reparación de piscinas en el norte de Tenerife. Recupera 80h/año de tiempo libre. Primera inspección de balance químico GRATIS. +500 familias satisfechas.",
   keywords: [
     "mantenimiento de piscinas en Tenerife",
     "mantenimiento piscinas Tenerife",
@@ -145,10 +145,10 @@ const localBusinessSchema = {
     "@type": "GeoCircle",
     geoMidpoint: {
       "@type": "GeoCoordinates",
-      latitude: 28.2916,
-      longitude: -16.6291,
+      latitude: 28.416,
+      longitude: -16.5425,
     },
-    geoRadius: "50000",
+    geoRadius: "20000",
   },
 };
 

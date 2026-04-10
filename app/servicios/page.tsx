@@ -49,10 +49,10 @@ const serviceSchema = {
     "@type": "GeoCircle",
     geoMidpoint: {
       "@type": "GeoCoordinates",
-      latitude: 28.2916,
-      longitude: -16.6291,
+      latitude: 28.416,
+      longitude: -16.5425,
     },
-    geoRadius: "50000",
+    geoRadius: "20000",
   },
   hasOfferCatalog: {
     "@type": "OfferCatalog",
@@ -181,7 +181,7 @@ export default function ServiciosPage() {
                 <div className="mb-8 md:mb-12">
                   <div className="inline-block bg-white/90 backdrop-blur-md rounded-2xl px-5 py-4 md:px-8 md:py-6 border border-brand-primary/10 shadow-2xl">
                     <p className="text-base sm:text-lg md:text-xl font-bold text-brand-dark leading-tight">
-                      Empresa especializada en piscinas privadas y de comunidades en toda la isla de Tenerife.
+                      Empresa especializada en piscinas privadas y de comunidades en el norte de Tenerife.
                     </p>
                     <p className="text-brand-primary/80 text-sm mt-2 font-medium">
                       Más de 500 familias ya disfrutan de su piscina sin preocupaciones.

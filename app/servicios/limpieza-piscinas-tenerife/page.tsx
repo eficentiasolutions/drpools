@@ -59,10 +59,10 @@ const serviceSchema = {
     "@type": "GeoCircle",
     geoMidpoint: {
       "@type": "GeoCoordinates",
-      latitude: 28.2916,
-      longitude: -16.6291,
+      latitude: 28.416,
+      longitude: -16.5425,
     },
-    geoRadius: "50000",
+    geoRadius: "20000",
   },
 };
 
@@ -141,6 +141,14 @@ const faqSchema = {
       acceptedAnswer: {
         "@type": "Answer",
         text: "Utilizamos exclusivamente productos profesionales certificados de máxima calidad. Nuestros alguicidas, floculantes, desinfectantes y productos de limpieza de superficies son seguros para la salud de bañistas, niños y mascotas. Trabajamos con las mejores marcas del mercado y seleccionamos los productos más adecuados para cada tipo de piscina y cada situación concreta.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "¿En qué zonas del norte de Tenerife limpiáis piscinas?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "DR Pools ofrece servicio de limpieza de piscinas en el norte de Tenerife. Cubrimos Puerto de la Cruz, La Orotava, Los Realejos, San Cristóbal de La Laguna, Tacoronte, El Sauzal, Santa Úrsula, La Victoria de Acentejo, La Matanza de Acentejo, San Juan de la Rambla, La Esperanza, Icod de los Vinos y muchas zonas estratégicas como La Paz, Martiánez, El Mayorazgo, La Perdoma, Aguamansa, La Longuera, Cruz Santa, Mesa del Mar, Agua García y San Marcos. Si tu zona no aparece, consúltanos.",
       },
     },
   ],
@@ -440,6 +448,10 @@ export default function LimpiezaPiscinasTenerife() {
                     q: "¿Qué productos utilizáis para la limpieza?",
                     a: "Utilizamos exclusivamente productos profesionales certificados de máxima calidad. Nuestros alguicidas, floculantes, desinfectantes y productos de limpieza de superficies son seguros para la salud de bañistas, niños y mascotas. Trabajamos con las mejores marcas del mercado.",
                   },
+                  {
+                    q: "¿En qué zonas del norte de Tenerife limpiáis piscinas?",
+                    a: "DR Pools ofrece servicio de limpieza de piscinas en el norte de Tenerife. Cubrimos Puerto de la Cruz, La Orotava, Los Realejos, San Cristóbal de La Laguna, Tacoronte, El Sauzal, Santa Úrsula, La Victoria de Acentejo, La Matanza de Acentejo, San Juan de la Rambla, La Esperanza, Icod de los Vinos y muchas más zonas del norte. Si tu zona no aparece, consúltanos.",
+                  },
                 ].map((faq) => (
                   <details key={faq.q} className="group bg-card rounded-2xl shadow-sm">
                     <summary className="flex items-center justify-between p-6 cursor-pointer font-semibold text-foreground hover:text-secondary transition-colors">
@@ -452,6 +464,59 @@ export default function LimpiezaPiscinasTenerife() {
                   </details>
                 ))}
               </div>
+            </div>
+          </section>
+
+          {/* Zonas que cubrimos */}
+          <section className="py-16 md:py-20 bg-background">
+            <div className="container mx-auto px-4">
+              <div className="text-center mb-12">
+                <h2 className="text-3xl md:text-4xl font-bold mb-4">
+                  Limpieza de piscinas en el <span className="gradient-text">Norte de Tenerife</span>
+                </h2>
+                <p className="text-muted-foreground text-lg">
+                  Servicio profesional de limpieza de piscinas en los municipios y zonas del norte de Tenerife
+                </p>
+              </div>
+
+              <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-6">
+                {[
+                  "Puerto de la Cruz",
+                  "La Orotava",
+                  "Los Realejos",
+                  "San Cristóbal de La Laguna",
+                  "Tacoronte",
+                  "El Sauzal",
+                  "Santa Úrsula",
+                  "La Victoria de Acentejo",
+                  "La Matanza de Acentejo",
+                  "San Juan de la Rambla",
+                  "La Esperanza",
+                  "Icod de los Vinos",
+                  "La Paz",
+                  "Martiánez",
+                  "El Mayorazgo",
+                  "La Perdoma",
+                  "Aguamansa",
+                  "La Longuera",
+                  "Cruz Santa",
+                  "Mesa del Mar",
+                  "Agua García",
+                  "San Marcos",
+                ].map((zona) => (
+                  <div
+                    key={zona}
+                    className="flex items-center gap-3 p-4 bg-card rounded-xl shadow-sm"
+                  >
+                    <div className="w-2 h-2 rounded-full bg-accent flex-shrink-0"></div>
+                    <span className="font-medium">Limpieza de piscinas en {zona}</span>
+                  </div>
+                ))}
+              </div>
+
+              <p className="text-center text-muted-foreground text-sm mt-8 max-w-2xl mx-auto">
+                ¿No ves tu zona? Trabajamos en todo el norte de Tenerife. <a href="#contacto" className="text-secondary font-semibold hover:underline">Consúltanos</a> para confirmar disponibilidad en tu ubicación.
+              </p>
             </div>
           </section>
 
@@ -486,7 +551,7 @@ export default function LimpiezaPiscinasTenerife() {
                 ¿Tu piscina necesita una limpieza profesional?
               </h2>
               <p className="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
-                Solicita tu presupuesto gratuito sin compromiso. Llegamos a toda Tenerife. Resultado garantizado.
+                Solicita tu presupuesto gratuito sin compromiso. Llegamos al norte de Tenerife. Resultado garantizado.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a
