@@ -1,9 +1,17 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  // Redirects from old URLs to new service URLs
+  // Redirects: non-www → www (canonical) + old URLs → new service URLs
   async redirects() {
     return [
+      // Canonical: forzar siempre https://www.drpools.es
+      {
+        source: '/:path*',
+        has: [{ type: 'host', value: 'drpools.es' }],
+        destination: 'https://www.drpools.es/:path*',
+        permanent: true,
+      },
+      // Old service URLs → estructura actual bajo /servicios/
       {
         source: '/mantenimiento-piscinas-tenerife',
         destination: '/servicios/mantenimiento-piscinas-tenerife',
