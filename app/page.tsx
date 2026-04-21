@@ -111,8 +111,14 @@ const localBusinessSchema = {
   email: "info@drpools.es",
   address: {
     "@type": "PostalAddress",
-    addressLocality: "Tenerife",
+    addressLocality: "Puerto de la Cruz",
+    addressRegion: "Tenerife",
     addressCountry: "ES",
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: 28.416,
+    longitude: -16.5425,
   },
   openingHoursSpecification: [
     {
@@ -141,15 +147,27 @@ const localBusinessSchema = {
     },
   ],
   priceRange: "€€",
-  areaServed: {
-    "@type": "GeoCircle",
-    geoMidpoint: {
-      "@type": "GeoCoordinates",
-      latitude: 28.416,
-      longitude: -16.5425,
-    },
-    geoRadius: "20000",
-  },
+  // Municipios específicos del norte de Tenerife donde opera DR Pools
+  areaServed: [
+    { "@type": "City", name: "Puerto de la Cruz" },
+    { "@type": "City", name: "La Orotava" },
+    { "@type": "City", name: "Los Realejos" },
+    { "@type": "City", name: "San Cristóbal de La Laguna" },
+    { "@type": "City", name: "Tacoronte" },
+    { "@type": "City", name: "El Sauzal" },
+    { "@type": "City", name: "Santa Úrsula" },
+    { "@type": "City", name: "La Victoria de Acentejo" },
+    { "@type": "City", name: "La Matanza de Acentejo" },
+    { "@type": "City", name: "San Juan de la Rambla" },
+    { "@type": "City", name: "Icod de los Vinos" },
+    { "@type": "City", name: "La Esperanza" },
+  ],
+  sameAs: [
+    "https://www.facebook.com/share/1CMksZtzTW/",
+    "https://www.instagram.com/drpools.es",
+    "https://www.tiktok.com/@drpoolss",
+    "https://www.google.com/maps/search/?api=1&query=DRpools&query_place_id=ChIJ5y8Xg1PIRGMRXtzZcEEx0mA",
+  ],
 };
 
 export default function HomePage() {

@@ -42,11 +42,20 @@ const serviceSchema = {
   "@type": "Service",
   name: "Limpieza de Piscinas en Tenerife",
   description: "Servicio profesional de limpieza de piscinas en Tenerife. Limpieza completa de fondo, paredes, filtros y sistema de circulación. Resultado garantizado.",
+  url: "https://www.drpools.es/servicios/limpieza-piscinas-tenerife",
   provider: {
     "@type": "LocalBusiness",
+    "@id": "https://www.drpools.es",
     name: "DR Pools",
+    url: "https://www.drpools.es",
     telephone: "+34624187418",
     email: "info@drpools.es",
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Puerto de la Cruz",
+      addressRegion: "Tenerife",
+      addressCountry: "ES",
+    },
     aggregateRating: {
       "@type": "AggregateRating",
       ratingValue: "5.0",
@@ -54,16 +63,26 @@ const serviceSchema = {
       bestRating: "5",
       worstRating: "1",
     },
+    sameAs: [
+      "https://www.facebook.com/share/1CMksZtzTW/",
+      "https://www.instagram.com/drpools.es",
+      "https://www.google.com/maps/search/?api=1&query=DRpools&query_place_id=ChIJ5y8Xg1PIRGMRXtzZcEEx0mA",
+    ],
   },
-  areaServed: {
-    "@type": "GeoCircle",
-    geoMidpoint: {
-      "@type": "GeoCoordinates",
-      latitude: 28.416,
-      longitude: -16.5425,
-    },
-    geoRadius: "20000",
-  },
+  areaServed: [
+    { "@type": "City", name: "Puerto de la Cruz" },
+    { "@type": "City", name: "La Orotava" },
+    { "@type": "City", name: "Los Realejos" },
+    { "@type": "City", name: "San Cristóbal de La Laguna" },
+    { "@type": "City", name: "Tacoronte" },
+    { "@type": "City", name: "El Sauzal" },
+    { "@type": "City", name: "Santa Úrsula" },
+    { "@type": "City", name: "La Victoria de Acentejo" },
+    { "@type": "City", name: "La Matanza de Acentejo" },
+    { "@type": "City", name: "San Juan de la Rambla" },
+    { "@type": "City", name: "Icod de los Vinos" },
+    { "@type": "City", name: "La Esperanza" },
+  ],
 };
 
 const breadcrumbSchema = {
