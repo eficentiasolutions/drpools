@@ -7,24 +7,27 @@ import Footer from "@/components/landing/Footer";
 import WhatsAppButton from "@/components/landing/WhatsAppButton";
 
 export const metadata: Metadata = {
-  title: "Limpieza de Piscinas en Tenerife | Servicio Profesional",
-  description: "Servicio profesional de limpieza de piscinas en Tenerife. Limpieza de fondo, paredes, filtros y sistema completo. Resultado garantizado. Presupuesto GRATIS. Llama al 624 187 418.",
+  // Title sin "en" para coincidir con la query exacta. 43 impresiones y 0 clics — CTR crítico.
+  title: "Limpieza de Piscinas Tenerife | DR Pools — Resultado Garantizado",
+  description: "Empresa de limpieza de piscinas Tenerife. Fondo, paredes, filtros y agua verde recuperada en 24h. Resultado garantizado o repetimos sin coste. Presupuesto GRATIS. Llama al 624 187 418.",
   keywords: [
-    "limpieza de piscinas en Tenerife",
+    "limpieza de piscinas Tenerife",
     "limpieza piscinas Tenerife",
-    "limpieza fondo piscina",
+    "limpieza de piscinas en Tenerife",
+    "limpieza fondo piscina Tenerife",
     "limpieza piscina precio Tenerife",
     "servicio limpieza piscina profesional",
     "empresa limpieza piscinas Tenerife",
     "limpieza piscina verde Tenerife",
+    "recuperar piscina verde Tenerife",
     "puesta en marcha piscina Tenerife",
   ],
   alternates: {
     canonical: "https://www.drpools.es/servicios/limpieza-piscinas-tenerife",
   },
   openGraph: {
-    title: "Limpieza de Piscinas en Tenerife | DR Pools — Resultado Garantizado",
-    description: "Servicio profesional de limpieza de piscinas en Tenerife. Limpieza integral de fondo, paredes, filtros. Presupuesto GRATIS.",
+    title: "Limpieza de Piscinas Tenerife | DR Pools — Resultado Garantizado",
+    description: "Empresa de limpieza de piscinas Tenerife. Fondo, paredes, filtros y recuperación de agua verde. Resultado garantizado. Presupuesto GRATIS.",
     url: "https://www.drpools.es/servicios/limpieza-piscinas-tenerife",
     images: [
       {
@@ -224,10 +227,10 @@ export default function LimpiezaPiscinasTenerife() {
                 <div className="mb-8 md:mb-12">
                   <div className="inline-block bg-white/90 backdrop-blur-md rounded-2xl px-5 py-4 md:px-8 md:py-6 border border-brand-primary/10 shadow-2xl">
                     <p className="text-base sm:text-lg md:text-xl font-bold text-brand-dark leading-tight">
-                      Servicio profesional de limpieza de piscinas en Tenerife.
+                      Servicio profesional de limpieza de piscinas Tenerife — norte de la isla.
                     </p>
                     <p className="text-brand-primary/80 text-sm mt-2 font-medium">
-                      Recupera el brillo cristalino de tu piscina con nuestro servicio integral. Resultado garantizado.
+                      Recupera el brillo cristalino de tu piscina con nuestro servicio integral. Resultado garantizado o repetimos sin coste.
                     </p>
                   </div>
                 </div>

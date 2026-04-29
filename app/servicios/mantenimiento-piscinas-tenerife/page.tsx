@@ -7,12 +7,16 @@ import Footer from "@/components/landing/Footer";
 import WhatsAppButton from "@/components/landing/WhatsAppButton";
 
 export const metadata: Metadata = {
-  title: "Mantenimiento de Piscinas en Tenerife | Servicio Profesional",
-  description: "Servicio profesional de mantenimiento de piscinas en Tenerife. Limpieza semanal, balance químico, revisión de equipos y reparaciones. +500 clientes satisfechos. Primera revisión GRATIS. Llama al 624 187 418.",
+  // Title sin "en" para coincidir con la query exacta "mantenimiento de piscinas tenerife"
+  // que tiene 29 impresiones y posición 55 — mayor volumen demostrado del sitio
+  title: "Mantenimiento de Piscinas Tenerife | DR Pools — Primera Revisión GRATIS",
+  description: "Empresa de mantenimiento de piscinas Tenerife con +500 clientes satisfechos. Limpieza semanal, balance químico y revisión de equipos en el norte de Tenerife. Primera revisión GRATIS. Llama al 624 187 418.",
   keywords: [
-    "mantenimiento de piscinas en Tenerife",
+    "mantenimiento de piscinas Tenerife",
     "mantenimiento piscinas Tenerife",
+    "mantenimiento de piscinas en Tenerife",
     "servicio mantenimiento piscina Tenerife",
+    "empresa mantenimiento piscinas Tenerife",
     "limpieza piscinas Tenerife",
     "balance químico piscina",
     "mantenimiento piscina precio Tenerife",
@@ -25,8 +29,8 @@ export const metadata: Metadata = {
     canonical: "https://www.drpools.es/servicios/mantenimiento-piscinas-tenerife",
   },
   openGraph: {
-    title: "Mantenimiento de Piscinas en Tenerife | DR Pools — +500 Clientes",
-    description: "Servicio profesional de mantenimiento de piscinas en Tenerife. Recupera tu tiempo libre. Primera revisión GRATIS. +500 clientes satisfechos.",
+    title: "Mantenimiento de Piscinas Tenerife | DR Pools — +500 Clientes",
+    description: "Empresa de mantenimiento de piscinas Tenerife. Limpieza semanal, balance químico y revisión de equipos. Primera revisión GRATIS. +500 clientes satisfechos.",
     url: "https://www.drpools.es/servicios/mantenimiento-piscinas-tenerife",
     images: [
       {
@@ -257,7 +261,7 @@ export default function MantenimientoPiscinasTenerife() {
                 <div className="mb-8 md:mb-12">
                   <div className="inline-block bg-white/90 backdrop-blur-md rounded-2xl px-5 py-4 md:px-8 md:py-6 border border-brand-primary/10 shadow-2xl">
                     <p className="text-base sm:text-lg md:text-xl font-bold text-brand-dark leading-tight">
-                      Servicio profesional de mantenimiento de piscinas en Tenerife.
+                      Servicio profesional de mantenimiento de piscinas Tenerife — norte de la isla.
                     </p>
                     <p className="text-brand-primary/80 text-sm mt-2 font-medium">
                       Recupera 80 horas al año y disfruta de una piscina cristalina sin preocupaciones. Más de 500 familias ya confían en nosotros.

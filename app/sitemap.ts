@@ -28,14 +28,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // Página principal de mantenimiento - keyword principal
     {
       url: `${baseUrl}/servicios/mantenimiento-piscinas-tenerife`,
-      lastModified: new Date('2026-04-14'),
+      lastModified: new Date('2026-04-29'),
       changeFrequency: 'weekly',
       priority: 0.9,
     },
     // Página de limpieza - segunda keyword importante
     {
       url: `${baseUrl}/servicios/limpieza-piscinas-tenerife`,
-      lastModified: new Date('2026-04-14'),
+      lastModified: new Date('2026-04-29'),
       changeFrequency: 'weekly',
       priority: 0.85,
     },
